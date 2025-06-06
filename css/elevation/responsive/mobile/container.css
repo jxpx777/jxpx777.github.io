@@ -1,0 +1,9 @@
+/* Container */
+
+.container {
+  width: 100%;
+}
+
+.container.medium {
+  width: 100%;
+}
