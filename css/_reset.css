@@ -28,6 +28,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	-webkit-text-size-adjust: none;
 	line-height: 1;
 }
 ol, ul {
@@ -45,3 +46,22 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* Additions from Pixelarity Elevation theme */
+mark {
+	background-color: transparent;
+	color: inherit;
+}
+
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input,
+select,
+textarea {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
