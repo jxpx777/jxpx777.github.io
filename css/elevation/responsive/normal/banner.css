@@ -1,0 +1,10 @@
+/* Banner */
+
+#banner {
+  background-size: 900px 180px;
+  padding: 10em 0 8em 0;
+}
+
+#banner h2 {
+  font-size: 2.5em;
+}

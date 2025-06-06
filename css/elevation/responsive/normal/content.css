@@ -1,0 +1,7 @@
+/* Section/Article */
+
+header.major > :first-child:before,
+header.major > :first-child:after {
+  background-size: 75px 20px;
+  width: 75px;
+}
