@@ -1,0 +1,3 @@
+@import "./footer/base.css";
+@import "./footer/medium.css" (max-with: 768px);
+@import "./footer/narrow.css" (max-with: 550px);

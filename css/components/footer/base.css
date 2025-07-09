@@ -1,0 +1,8 @@
+jp-footer {
+  display: block;
+  margin-top: 4rem;
+
+  p {
+    text-align: center;
+  }
+}

@@ -1,0 +1,42 @@
+/* Base Styles */
+:root {
+  /* Colors */
+  --background-rgb: 254, 252, 249;
+  --background: rgb(var(--background-rgb));
+  --text: #2b2b2b;
+  --alloy-accent: #b58d4a;
+  --header-derived: rgb(93, 73, 46);
+  /* Layout */
+  --max-width: 860px;
+}
+
+body {
+  font-family:
+    system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+header,
+main,
+footer {
+  margin-inline: auto;
+  min-inline-size: min(100%, 400px);
+  max-width: var(--max-width);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--header-derived) !important;
+}
+a {
+  color: var(--alloy-accent);
+}
+
+cite {
+  font-style: italic;
+}
