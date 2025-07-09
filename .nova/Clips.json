@@ -9,6 +9,13 @@
           "syntax" : "html",
           "trigger" : "jp-book"
         },
+        {
+          "content" : "<live-photo src=\"${:src}\"><\/live-photo>",
+          "name" : "Live Photo Tag",
+          "scope" : "editor",
+          "syntax" : "html",
+          "trigger" : "live-photo"
+        }
       ],
       "name" : "Custom Elements"
     }
