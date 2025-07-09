@@ -5,23 +5,22 @@ class JpHeader extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-<header>
-  <h1><a href="index.html">Jamie Phelps</a></h1>
-  <nav id="nav">
+	<header>
+  <div class="title">
+		<a href="/">Jamie&nbsp;Phelps</a>
+	</div>
+	<div class="subtitle">
+	Smartsure&nbsp;&amp;&nbsp;cocksure
+	</div>
+	<nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="#" class="icon solid fa-angle-down">Page Layouts</a>
-        <ul>
-          <li><a href="left-sidebar.html">Left Sidebar</a></li>
-          <li><a href="right-sidebar.html">Right Sidebar</a></li>
-          <li><a href="no-sidebar.html">No Sidebar</a></li>
-        </ul>
-      </li>
-      <li><a href="elements.html">Elements</a></li>
+			<li><a href="/blog">Blog</a></li>
+			<li><a href="/projects">Projects</a></li>
+      <li><a href="/now">Now</a></li>
+      <li><a href="/about">About</a></li>
     </ul>
   </nav>
-</header>`;
+	</header>`;
   }
 }
 
