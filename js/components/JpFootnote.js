@@ -32,16 +32,26 @@ customElements.define(
         return;
       }
 
+      const idAttribute = this.getAttribute("id");
+      if (!idAttribute) {
+        console.warn("<jp-footnote> tag missing id attribute");
+        return;
+      }
+
       const number = getNextFootnoteNumber.next().value;
-      const id = `fn${number}`;
-      const ref = `#fnref${number}`;
+      const id = `fn${idAttribute}`;
+      const ref = `#fnref${idAttribute}`;
+      const title = this.getAttribute("title");
 
       // Replace <jp-footnote> with <sup><a>
       const sup = document.createElement("sup");
       const a = document.createElement("a");
       a.href = `#${id}`;
-      a.id = `fnref${number}`;
+      a.id = `fnref${idAttribute}`;
       a.textContent = `[${number}]`;
+      if (title) {
+        a.title = title;
+      }
       sup.appendChild(a);
       this.replaceWith(sup);
 
