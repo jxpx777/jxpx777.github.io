@@ -15,7 +15,7 @@ jp-header {
   background-position: center;
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent !important;
+  color: transparent;
 
   text-align: center;
   font-size: 4rem;
@@ -26,6 +26,11 @@ jp-header {
     text-decoration: none;
     font-weight: 500;
     color: transparent;
+  }
+  a:hover {
+    font-style: oblique;
+    text-decoration: underline;
+    text-decoration-color: var(--antique-brass);
   }
 
   .title {
@@ -53,10 +58,6 @@ jp-header {
     margin-top: 0.7em;
     line-height: 1em;
     li {
-      &:hover {
-        font-style: oblique;
-        text-decoration: underline;
-        text-decoration-color: var(--antique-brass);
       }
     }
   }
