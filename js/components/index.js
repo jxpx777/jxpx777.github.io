@@ -4,3 +4,4 @@ import "./JpNav.js";
 import "./JpFooter.js";
 import "./JpFootnote.js";
 import "./JpBook.js";
+import "./lightbox.js";
