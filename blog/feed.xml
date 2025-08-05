@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feed
+  xmlns="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/">
+		<title>Jamie Phelps - smartsure and cocksure</title>
+		<id>https://jxpx777.me/blog/</id>
+		<icon>https://jxpx777.me/favicon.ico</icon>
+		<logo>https://jxpx777.me/apple-touch-icon.png</logo>
+		<link rel="alternate" href="https://jxpx777.me/blog/" />
+		<link rel="self" href="https://jxpx777.me/blog/feed.xml" />
+		<updated>2025-07-19T08:00:00.000Z</updated>
+		<author>
+				<name>Jamie Phelps</name>
+		</author>
+		<entry>
+				<title><![CDATA[Apple Music Classical doesn't understand classical music.]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20250714-apple-music-classical/" />
+				<id>https://plainvanillaweb.com/blog/articles/20250714-apple-music-classical/</id>
+				<published>2025-07-19T08:00:00.000Z</published>
+				<updated>2025-07-19T08:00:00.000Z</updated>
+				<summary><![CDATA[Apple acquired a music service dedicated to classical music, but that didn't include classical music sensibilities. Here are three examples where Apple Music Classical misses expectations.]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						Apple Music Classical doesn't understand classical music.
+					</h1>
+				</header>
+				<div class="e-content">
+					<!-- Background, acquisition -->
+					<p></p>
+
+					<!-- Launch of Apple Music Classical -->
+					<!-- Bugs and gaps -->
+				</div>
+				<footer>
+
+				</footer>
+			]]></content>
+		</entry>
+</feed>
