@@ -2,3 +2,26 @@
 @import "content/now.css";
 @import "content/gallery.css";
 @import "content/blog.css";
+
+a.footnote {
+  font-size: 0.7em;
+}
+
+:is(ol, ul, menu) {
+  summary {
+    padding-left: 1em;
+  }
+  summary::marker {
+    content: "▶️";
+  }
+}
+details {
+  summary::marker {
+    content: "▶️";
+  }
+}
+details[open] {
+  summary::marker {
+    content: "🔽";
+  }
+}

@@ -1,0 +1,13 @@
+.blog-post {
+  article {
+    padding: 1.5rem 1rem;
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    section {
+      font-size: 1rem;
+    }
+  }
+}

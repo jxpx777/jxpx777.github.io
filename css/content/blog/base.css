@@ -1,0 +1,30 @@
+article {
+  footer {
+    p {
+      margin: 0;
+    }
+    font-size: 0.7em;
+    color: #808080;
+
+    .metadata {
+      display: flex;
+      justify-content: space-between;
+    }
+    address {
+      font-style: inherit;
+    }
+  }
+}
+/* Archive page */
+article {
+  article {
+    time {
+      font-size: 0.7em;
+      color: #888;
+    }
+    h2 {
+      margin-top: 0;
+      line-height: 1.15em;
+    }
+  }
+}
