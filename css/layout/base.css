@@ -2,8 +2,4 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
-
-  main {
-    padding: 0 2.5em;
-  }
 }
