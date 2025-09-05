@@ -3,7 +3,7 @@
     {
       "children" : [
         {
-          "content" : "<jp-book\n\ttitle=\"${:title}\"\n\tauthor=\"${:author}\"\n\tformat=\"${:short|long}\"\n\turl=\"${:url}\"\n\tyear=\"${:year}\"\n\tpublisher=\"${:publisher}\"\n\tlang=\"${:lang}\"\n\tisbn=\"${:isbn}\"\n><\/jp-book>",
+          "content" : "<jp-book\n\ttitle=\"${:title}\"\n\tauthor=\"${:author}\"\n\tformat=\"${:short|long}\"\n\turl=\"${:url}\"\n\tyear=\"${:year}\"\n\tpublisher=\"${:publisher}\"\n\tplace=\"${:place}\"\n\tlang=\"${:lang}\"\n\tisbn=\"${:isbn}\"\n><\/jp-book>",
           "name" : "Book Tag",
           "scope" : "editor",
           "syntax" : "html",
