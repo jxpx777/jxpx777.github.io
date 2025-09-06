@@ -51,8 +51,17 @@
             screenshot:
 
             <br /><img
-              src="./images/brahms-carplay.png"
-              width="500"
+              src="./images/brahms-carplay-693.png"
+              srcset="
+                ./images/brahms-carplay-347.png   347w,
+                ./images/brahms-carplay-693.png   693w,
+                ./images/brahms-carplay-1386.png 1386w
+              "
+              sizes="
+							(max-width: 550px) 347px,
+							(max-width: 850px) 693px,
+							1386px
+							"
               class="lightbox"
               alt='A screenshot of Apple CarPlay showing the track order created by Siri when asked to "Play Brahms third symphony". The movements are in the order II, IV, I, with III the current track.'
             /><br />
@@ -148,7 +157,7 @@
                     </figcaption>
                     <img
                       src="./images/dvorak-essentials-mac.png"
-                      width="500"
+                      width="300"
                       class="lightbox"
                       alt="A screenshot showing the first fifteen tracks of the playlist."
                     /><br />
