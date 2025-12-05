@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>Avoid Linking iCloud Email Address to Non-iCloud Apple ID&#x27;s</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <script type="module" src="/js/index.js"></script>
+  </head>
+  <body class="blog">
+    <jp-header></jp-header>
+    <main>
+      <article
+        class="h-entry"
+        data-published="2012-12-15T14:00:17-0600"
+        data-updated="2018-08-12T14:14:37-0500"
+      >
+        <header>
+          <h1 class="p-name">
+            Avoid Linking iCloud Email Address to Non-iCloud Apple ID&#x27;s
+          </h1>
+        </header>
+        <section class="e-content">
+          Since the iCloud transition, my wife has been unable to receive event invitations from me or join my shared calendars and reminder lists. I've been increasingly fed up with the situation because it makes things I rely on like calendars and reminders inherently unreliable. Today, I believe I solved it, and given how many times I've seen this issue reported and lamented, I thought it would be helpful to write it up.
+
+          The other day I noticed that she had her iCloud @me.com address associated with her long-established Gmail-based Apple ID she uses for purchasing things from the iTunes Store. This was the first whiff of the problem's scent I had had in a long time.
+
+          The issue seems to have been that somewhere along the way her @me.com address had been added as a secondary email address to the Gmail-based iTunes Store Apple ID. Removing the @me.com address from the Gmail Apple ID allowed things to flow properly.
+
+          This wasn't enough for a nerd like me. I then set my mind to thinking about <em>why</em> this would be an issue. My best thought on this is that when the request comes in, Apple looks in the database for an account that has that email address associated with it. When it finds it, it checks if the account it's associated with is an iCloud account. Since the Gmail account was older, it seems that this account was found first but then the system saw it was not an iCloud account and in the case of calendar and reminder list sharing, routed the invitation to email instead of the push notification system. Then, when she tried to log in via the web, the account that she logged into, the @me.com account, did not match the account that the request was associated with, the Gmail account, so joining failed.
+
+          This is all speculation, of course, given the not-even-NULL amount of familiarity I have with the database schema or any other workings of the iCloud infrastructure, but it makes sense—as much as ANY of this ordeal makes sense—and the scenario I've imagined is enough to satisfy my nerd need to explain things.
+
+          So, if you're seeing similar symptoms, check any other Apple ID's that your iCloud email address might be associated with and remove that association.
+        </section>
+        <footer>
+          <section class="metadata">
+            <blog-article-footer></blog-article-footer>
+          </section>
+        </footer>
+      </article>
+    </main>
+    <jp-footer></jp-footer>
+  </body>
+</html>

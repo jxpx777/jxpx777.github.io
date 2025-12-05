@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>A convention for action-specific Javascript in Rails</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <script type="module" src="/js/index.js"></script>
+  </head>
+  <body class="blog">
+    <jp-header></jp-header>
+    <main>
+      <article
+        class="h-entry"
+        data-published="2010-10-18T08:19:37-0500"
+        data-updated="2019-02-24T11:31:15-0600"
+      >
+        <header>
+          <h1 class="p-name">
+            A convention for action-specific Javascript in Rails
+          </h1>
+        </header>
+        <section class="e-content">
+          I've been working on making the Javascript for a pretty big Rails app unobtrusive. Chucking everything into <code>application.js</code> as shown in many screencasts with trivial apps has proven to be problematic to say the least. It's brittle code that could very well infiltrate unintended areas of the site that happen to use the same classes or id's. Bad juju.
+
+          What I find amazing is that Rails hasn't developed a convention for Javascript.<sup id="fnref-259-1431297608-1"><a href="#fn-259-1431297608-1" class="jetpack-footnote">1</a></sup> I'll describe some approaches I've seen and then the approach I developed.
+
+          <h3>Namespaces <sup id="fnref-259-1431297608-2"><a href="#fn-259-1431297608-2" class="jetpack-footnote">2</a></sup></h3>
+
+          This approach still chucks everything into just one or maybe a few big js files, but uses namespacing to get around the potential conflicts. As far as I can tell, though, this approach requires that the user use the next approach via a helper method.
+
+          <h3><code>content_for</code></h3>
+
+          This is old news and we use it to great effect, but it has drawbacks because it does not rely on convention over configuration. Also, if you have a few <code>&lt;%= yield :foo %&gt;</code> areas, your actions become a muddle of template code and actual action code. Currently we're using <code>content_for</code> for a few different areas of the page, and it's already becoming messy in the actions.
+
+          <h3>Convention over Configuration <sup id="fnref-259-1431297608-3"><a href="#fn-259-1431297608-3" class="jetpack-footnote">3</a></sup></h3>
+
+          <pre><code class="ruby"># application_controller.rb
+          before_filter :instantiate_action_javascript
+          def instantiate_action_javascript
+              js_path = File.join(controller_path, "#{action_name}.js")
+              @current_action_javascript_path = File.exist?(File.join(RAILS_ROOT, 'public', 'javascripts', js_path)) ? js_path : nil
+          end
+
+          # layout.html.erb
+          &lt;%= @current_action_javascript_path ? javascript_include_tag(@current_action_javascript_path) : "" %&gt;
+          </code></pre>
+
+          The code should speak for itself, but I think that mimicking the structure of the views directory makes the most sense here. With this code, I can create javascript files for each action and have them automatically included in the template. Checking for the existence of the file prevents an unnecessary HTTP request and corresponding 404 error in the Javascript console.
+
+          <div class="footnotes">
+
+          <hr>
+
+          <ol>
+              <li id="fn-259-1431297608-1">
+          We're still on Rails 2.3.10, so if this is in Rails 3 (or I've simply missed it in Rails 2) please let me know.&nbsp;<a href="#fnref-259-1431297608-1">↩</a></li>
+              <li id="fn-259-1431297608-2">
+          First found this at <a href="http://topsecretproject.finitestatemachine.com/2010/04/how-to-organizing-javascript-in-ruby-on-rails/">Toby Hede's blog</a> via <a href="http://stackoverflow.com/questions/2891523/rails-best-practices-where-to-place-unobtrusive-javascript">this SO post</a>&nbsp;<a href="#fnref-259-1431297608-2">↩</a></li>
+              <li id="fn-259-1431297608-3">
+          I haven't seen this anywhere else, but I'm certainly not so clever that I think no one else has thought of it.&nbsp;<a href="#fnref-259-1431297608-3">↩</a></li>
+          </ol>
+          </div>
+        </section>
+        <footer>
+          <section class="metadata">
+            <blog-article-footer></blog-article-footer>
+          </section>
+        </footer>
+      </article>
+    </main>
+    <jp-footer></jp-footer>
+  </body>
+</html>

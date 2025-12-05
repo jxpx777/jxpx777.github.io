@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>Backups</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <script type="module" src="/js/index.js"></script>
+  </head>
+  <body class="blog">
+    <jp-header></jp-header>
+    <main>
+      <article
+        class="h-entry"
+        data-published="2012-01-29T11:42:32-0600"
+        data-updated="2018-08-12T13:44:21-0500"
+      >
+        <header>
+          <h1 class="p-name">
+            Backups
+          </h1>
+        </header>
+        <section class="e-content">
+          <blockquote>
+            There are two kinds of people in the world: those that have had a hard drive fail and those that will have a hard drive fail.
+          </blockquote>
+
+          <cite>The Internet</cite>
+
+          Our lives are increasingly expressed in long strings of ones and zeroes called bits. Bits make bytes and bytes get piled up into mega-, giga-, and terabytes. Believe it or not, there was a time when the only copy of your family pictures lived in your house. Likewise for your books, music, personal documents, etc. If your house burned down, you might be able to grab an album of photos or two, but generally, such a catastrophe meant your precious memories were no longer expressed in physical artifacts extant anywhere in the world. Harrowing.
+
+          With physical items, having backups is simply not scalable. You could buy multiple copies of each book or album, photocopy your notebooks and writings, but eventually, you would run out of space and money.
+
+          Fortunately, ones and zeroes are relatively cheap copies to make. Your data should exist in at least three places: the main copy on your computer, a local backup, and a remote backup.
+
+          <h2>Local</h2>
+
+          For Mac users, local backups don't come any simpler than <a href="http://www.apple.com/findouthow/mac/#timemachinebasics">Time Machine</a>. This is the minimum requirement for backups.
+
+          Buy the biggest, best drive that you can afford. At a minimum, the drive should be at least twice the size of your main drive. I strongly recommend using a <a href="http://www.amazon.com/gp/product/B0057AVXTA/ref=as_li_ss_tl?ie=UTF8&amp;tag=jamiephelpsho-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B0057AVXTA">Time Capsule</a> for Time Machine, but hard drives like <a href="http://www.amazon.com/exec/obidos/ASIN/B004SH5VQ4/jamiephelpsho-20">this one</a> work great too. Put it in a bookcase or drawer near your desk and run the cable to your computer. Plug it in every time you come back to your desk and Time Machine will back up your stuff. (In Lion, Time Machine will also <a href="http://www.apple.com/macosx/whats-new/features.html#timemachine">maintain your backup history</a> while you're away from your backup drive as long as there's space, and then offload that history to your backup drive when it's reconnected.)
+
+          If you want even more backup storage and history, consider a <a href="http://www.amazon.com/gp/product/B003GZ828I/ref=as_li_ss_tl?ie=UTF8&amp;tag=jamiephelpsho-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B003GZ828I">Drobo FS</a> stuffed with at least three of these <a href="http://www.amazon.com/gp/product/B004CSIG1G/ref=as_li_ss_tl?ie=UTF8&amp;tag=jamiephelpsho-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B004CSIG1G">Western Digital Caviar Black</a> hard drives. Mix and match the size if you like, but get at least three so the Drobo can do its thing properly.
+
+          <h2>Remote</h2>
+
+          A local backup is a fantastic first step. If you don't do anything else, you're at least covered on the primary hardware failure front and you're thus way ahead of most people whose fingers ever touch a computer. But, what if your house burns down or floods? What happens if someone breaks into your house and steals all your computer equipment? These catastrophe scenarios are why you need a remote backup as well.
+
+          <h3>Backblaze</h3>
+
+          There are other options out there, but I recommend <a href="http://www.backblaze.com/partner/af1857">Backblaze</a>. The initial backup will take quite a while (maybe up to a few weeks) if you don't have a fast Internet connection or if your computer isn't connected to the Internet all the time. One of my favorite things about Backblaze is the security. You can specify your own encryption key in the form of a password that you provide. Backblaze is $50 per computer per year. Every computer in our house backs up to Backblaze.
+
+          <h3>Dropbox</h3>
+
+          <a href="http://db.tt/huoKzBU">Dropbox</a> is technically not a backup service. It is a file synchronization service. But, with your files safely stored on Dropbox's servers, you can simply link a new computer to Dropbox and have those files restored just as fast as your Internet connection will carry them. Dropbox also keeps a history for your files. The 2 GB account is free, and you can purchase more storage if you need it. All of my most important files live on Dropbox, and since it's become the <em>de facto</em> synchronization mechanism for apps on my iPhone and iPad such as 1Password, Elements, and TextExpander, it's an indispensable tool.
+
+          <h2>Conclusion</h2>
+
+          Backups are important. Yes, it costs money to get this set up and to keep it going, but the peace of mind is priceless.
+        </section>
+        <footer>
+          <section class="metadata">
+            <blog-article-footer></blog-article-footer>
+          </section>
+        </footer>
+      </article>
+    </main>
+    <jp-footer></jp-footer>
+  </body>
+</html>
