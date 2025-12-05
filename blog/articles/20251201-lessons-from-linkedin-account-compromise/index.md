@@ -1,0 +1,165 @@
+# Lessons learned from my LinkedIn account takeover
+
+In early October 2025, I woke to several questions from colleagues about
+messages they received from my LinkedIn account. That’s how I learned that my
+account had been compromised. What followed was a few hours of cat-and-mouse
+with the attackers and several days of efforts to regain control of my
+account. Now that it’s in the past and I have had time to reflect, I think
+it’s important to share some insights gleaned from the experience, both for
+users of internet software and for platform owners.
+
+## The Exploit
+
+First, how did the attackers gain access to my account? I pride myself on my
+information security and have a pretty good understanding of my own threat
+model and available options for security. I was shocked to find I had been
+compromised.
+
+The issue stemmed from a defunct email address on a domain I used to own and
+the fact that LinkedIn allows signing in with any of the emails you have
+attached to your account. The attackers discovered that I had an email address
+still on my LinkedIn account from an old web consulting business I operated
+tied to a domain I no longer own. They registered the domain and created an
+email address that matched the email still associated with my LinkedIn
+account.
+
+The lesson I take from this is that decommissioning a domain, particularly one
+with associated email addresses, needs to be like decommissioning a nuclear
+reactor: a thorough checklist of things to wind down, check, and mitigate
+before allowing the domain to expire, with examples to trigger your memory
+about things you might overlook.
+
+For website operators, an important question is whether you should allow
+a user to associate multiple email addresses to their account. If you do—for
+instance, LinkedIn might want to allow a person with a full-time job and
+a freelance side hustle to be found by potential connections that would only
+have one or the other address—consider whether it should be valid to use those
+secondary emails for signing in. As of this writing, both LinkedIn and GitHub
+allow signing in with an email address other than the primary one. Perhaps
+there are good reasons for this, but I question the value given the risks. For
+providers of critical services like GitHub or NPM, I think proactive
+monitoring of email address domains for expiration, transfer, or MX record
+changes should be on the table.
+
+### Two-factor Authentication
+
+Right now, it’s an open question to me whether I had two-factor authentication
+enabled on my LinkedIn account at the time of the attack. After I regained
+control over my account, I did enable it, but LinkedIn’s activity audit
+doesn’t list enabling or disabling two-factor authentication, so I am left to
+wonder if the attackers removed it or if I had neglected to add it in the
+beginning.
+
+As part of periodic review of accounts, it’s advisable to compare the sites
+you use to a list of two-factor authentication–enabled websites such as
+[2fa.directory](https://2fa.directory/us/). It’s possible that a service adds
+2FA support or that its support for various kinds of factors has changed since
+you enabled a different factor. Particularly, migrating from SMS or
+a proprietary 2FA scheme to use TOTP or hardware security keys is
+a significant upgrade.
+
+## The Liminal Period
+
+### Passkeys
+
+At first, I was able to sign in and do some in-the-moment battle with the
+attackers because I had a passkey attached to my LinkedIn account. They
+repeatedly signed my sessions out and I could imagine their confusion as
+I immediately signed back in. During this time, I was able to contradict the
+messages they were sending to my contacts. What I wasn’t able to do was
+perform any operation that required the password for the account. Eventually,
+the attackers grew wise and removed my passkey from the account.
+
+As software engineers, we need to be deeply thoughtful about adopting new
+technologies. When passkeys launched, many sites, particularly geared toward
+developers or the security minded, wanted to be on the left side of the
+adoption curve. We built passkey functionality into their account management
+pages and their sign in screens and updated the release notes. But we didn’t
+all think through the full breadth of authentication pause points built into
+our software. If a user has possession of the passkey for an account,
+shouldn’t that be sufficient authentication to perform operations that can be
+authenticated via password—change the password or email, remove an email
+address, change the primary email address? These are important product
+questions when making changes to the authentication mechanisms in our software
+and failing to make clear decisions can leave us vulnerable in the gaps.
+
+### Report Abuse
+
+I also struck at the root of the problem, which was the registrar and host
+associated with the domain. I called the Registrar Abuse Contact Phone number
+returned by a whois query on the domain. I shared what the registrant was
+using the domain for and they promised an investigation. Unfortunately, as of
+this writing, the domain is still registered with the same registrar.
+
+### Identity Verification
+
+Resetting the password on the account was the only operation on the account
+that _required_ access to the primary email address. LinkedIn
+[has](https://www.linkedin.com/help/linkedin/answer/a1382107) a mechanism for
+regaining access to an account when you do not have access to the email
+address associated with the account. Unfortunately, when you tell LinkedIn
+that you do not have access to the email address, it sends an email to the
+account anyway and allows someone controlling that address to rescind the
+request for verification. I was confused because the verification failed to
+launch; I thought it was potentially related to ad blocking or iCloud Private
+Relay or some other system I use to protect myself from the internet. But
+later, I figured out that this was happening behind the scenes and the
+attackers were faster than I was.
+
+I’m puzzled by this. Identity verification, where the user supplies
+identification such as a driver license and takes a live selfie during the
+same session, is one of the strongest proofs of identity and onerous enough
+that the user wouldn’t choose to engage it if they had access to the email
+address. And while attackers _do_ attempt identity verification processes with
+fraudulent documents and dodgy photographic environments, a legitimate user
+will be able to complete the verification process fairly easily with a high
+degree of confidence.
+
+I sent a support request about not being able to complete the verification.
+I thought I didn’t receive a response, but it turned out that the attackers
+closed the ticket because it was associated to my account. We should think
+carefully about what an account can and can’t do after requesting identity
+verification. Changing passwords, adding or removing email addresses or
+authentication schemes, establishing new OAuth connections, and archiving
+messages or support tickets immediately come to mind as operations that should
+be restricted.
+
+## Recovery
+
+After a few days and with the initial frenzy relaxed, I tried identity
+verification again. I completed the verification as quickly as possible and my
+speed run apparently caught the attackers with their defenses down and I was
+able to regain control over the account.
+
+The lesson for me as a user is that when things seem dire and you’ve exhausted
+your options, it’s worth trying again. Maybe your read of the situation wasn’t
+accurate, or you made too many assumptions. Maybe the account was reported for
+abuse and has been disabled or quarantined so that the attackers are
+restricted. Many things can change, sometimes with notification and sometimes
+without, and those can change the landscape of possibilities.
+
+Mental models are crucial to dealing with technology issues, whether that’s
+a compromised LinkedIn account or something more mundane like a website that’s
+not allowing you to submit a form, a photo that fails to sync, or an
+Internet-of-things device that’s not responding to your voice assistant.
+Having a general idea of what happens when we perform an action on our device
+or what an attacker in control of a compromised account would be guarding
+against puts you in a better position to identify options for improving the
+situation.
+
+## Conclusion
+
+<figure>
+<blockquote
+cite="https://www.schneier.com/crypto-gram/archives/1999/1215.html">Security
+is not a product; it’s a process.</blockquote>
+<figcaption>Bruce Schneier</figcaption>
+</figure>
+
+Overall, my LinkedIn account being compromised wasn’t the worst thing in the
+world. At its worst, I thought I would lose my account for good. At best,
+I knew my reputation would take a hit, particularly in the eyes of
+security-conscious colleagues who didn’t have all the facts. Most folks were
+sympathetic and forgiving, and I was fortunate to recover with no permanent
+damage that I am aware of. And I’m pleased to glean from the unpleasant
+episode some useful lessons for users and developers. Stay safe out there!
