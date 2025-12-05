@@ -1,0 +1,339 @@
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--page-bg, #fdfcfc);
+}
+
+main {
+  display: grid;
+  gap: 2rem;
+  padding: clamp(1.5rem, 4vw, 3rem) 1.5rem 3rem;
+}
+
+.weeks-hero {
+  max-width: 60ch;
+}
+
+.weeks-hero p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+life-grid {
+  --week-size: clamp(1rem, 0.8vw, none);
+  --week-gap: 0.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--week-gap);
+  /* inline-size: min(100%, calc(52 * var(--week-size) + 51 * var(--week-gap))); */
+  justify-content: flex-start;
+  margin-inline: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: hsl(260 33% 98%);
+  box-shadow:
+    inset 0 0 0 1px hsl(240 10% 85% / 0.6),
+    0 1.2rem 3rem hsl(240 15% 5% / 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  life-grid {
+    background: hsl(240 30% 14%);
+    box-shadow:
+      inset 0 0 0 1px hsl(240 20% 35% / 0.6),
+      0 1.2rem 3rem hsl(240 30% 5% / 0.4);
+  }
+}
+
+jp-era {
+  --era-1: lightcoral;
+  --era-2: peachpuff;
+  --era-3: palegoldenrod;
+  --era-4: palegreen;
+  --era-5: paleturquoise;
+  --era-6: palevioletred;
+  --era-7: plum;
+
+  display: contents;
+
+  life-week:first-child {
+    box-shadow: 0 0 3px 3px gold;
+  }
+
+  /* Base layer - every element gets a color, no consecutive matches */
+  &:nth-of-type(5n + 1) {
+    life-week {
+      background-color: var(--era-1);
+      &:not(:empty) {
+        /* box-shadow: inset 0 0 4px 8px var(--era-1); */
+        box-shadow: inset 0 0 10px var(--era-1);
+        border: solid 2px var(--era-1);
+        background-color: unset;
+      }
+    }
+  }
+  &:nth-of-type(5n + 2) {
+    life-week {
+      background-color: var(--era-2);
+    }
+  }
+  &:nth-of-type(5n + 3) {
+    life-week {
+      background-color: var(--era-3);
+    }
+  }
+  &:nth-of-type(5n + 4) {
+    life-week {
+      background-color: var(--era-4);
+    }
+  }
+  &:nth-of-type(5n + 5) {
+    life-week {
+      background-color: var(--era-5);
+    }
+  }
+
+  /* Override layers - use step sizes of 3+ to avoid consecutive matches */
+  &:nth-of-type(7n + 1) {
+    life-week {
+      background-color: var(--era-2);
+    }
+  }
+  &:nth-of-type(7n + 3) {
+    life-week {
+      background-color: var(--era-4);
+    }
+  }
+  &:nth-of-type(7n + 5) {
+    life-week {
+      background-color: var(--era-1);
+    }
+  }
+}
+
+life-week {
+  padding: 0.2rem 0.4rem;
+  /* inline-size: var(--week-size); */
+  block-size: var(--week-size);
+  border-radius: 0.25rem;
+  border: 1px solid hsl(240 20% 80%);
+  color: hsl(240 20% 30%);
+  font-size: 0.55rem;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+  /* isolation: isolate; */
+  flex: 1 0 var(--week-size);
+
+  font-size: 0.6rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  life-week {
+    border-color: hsl(240 25% 35%);
+    background: hsl(240 20% 26%);
+    color: hsl(240 25% 86%);
+  }
+}
+
+life-week.past {
+  background: hsl(210 20% 88%);
+  border-color: hsl(210 25% 70%);
+}
+
+life-week.future {
+  opacity: 0.4;
+  background: transparent;
+}
+
+life-week.current {
+  border-color: hsl(25 95% 55%);
+  background: hsl(25 95% 80%);
+  color: hsl(20 40% 20%);
+  box-shadow: 0 0 0 2px hsl(25 95% 55% / 0.35);
+}
+
+life-week.birthday {
+  border-color: hsl(320 70% 55%);
+  box-shadow: 0 0 0 2px hsl(320 70% 65% / 0.45);
+}
+
+life-week {
+  flex: 1 0 auto;
+  inline-size: auto;
+  min-inline-size: var(--week-size);
+  block-size: var(--week-size);
+  font-size: 0.6rem;
+  font-weight: 600;
+  /* letter-spacing: 0.01em; */
+  display: inline flex;
+  align-items: center;
+  justify-content: center;
+  &.birthday {
+    background: hsl(320 70% 95%);
+    color: hsl(320 50% 20%);
+    border-radius: 999px;
+    box-shadow: 0 0.4rem 0.8rem hsl(320 40% 30% / 0.25);
+  }
+}
+
+life-week.annotated {
+  border-color: hsl(150 35% 45%);
+  background: hsl(150 40% 78%);
+  color: hsl(150 30% 20%);
+}
+
+@media (prefers-color-scheme: dark) {
+  life-week.past {
+    background: hsl(210 20% 30%);
+    border-color: hsl(210 35% 55%);
+  }
+
+  life-week.future {
+    opacity: 0.55;
+  }
+
+  life-week.current {
+    color: hsl(25 80% 15%);
+  }
+
+  life-week.birthday {
+    border-color: hsl(330 70% 65%);
+    box-shadow: 0 0 0 2px hsl(330 70% 45% / 0.45);
+  }
+
+  life-week.birthday-inline {
+    background: hsl(330 40% 30%);
+    color: hsl(330 40% 90%);
+    box-shadow: 0 0.4rem 0.8rem hsl(330 30% 5% / 0.55);
+  }
+
+  life-week.annotated {
+    background: hsl(150 35% 30%);
+    color: hsl(150 40% 85%);
+    border-color: hsl(150 45% 60%);
+  }
+}
+
+life-week:focus-visible {
+  outline: 2px solid hsl(60 90% 55%);
+  outline-offset: 2px;
+}
+
+life-week week-note {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  translate: -50% 0;
+  min-width: min(18rem, 80vw);
+  max-width: min(22rem, 85vw);
+  background: rgb(255 255 255 / 0.95);
+  color: hsl(240 33% 20%);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1rem 2.25rem hsl(240 33% 10% / 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.35rem);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+  z-index: 5;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (prefers-color-scheme: dark) {
+  life-week week-note {
+    background: rgb(20 20 24 / 0.95);
+    color: hsl(60 20% 85%);
+    box-shadow: 0 1rem 2.25rem rgb(0 0 0 / 0.5);
+  }
+}
+
+life-week:hover week-note,
+life-week:focus-visible week-note {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+life-week week-note.above {
+  top: auto;
+  bottom: calc(100% + 0.65rem);
+  left: 50%;
+  translate: -50% 0;
+}
+
+life-week week-note.below {
+  top: calc(100% + 0.65rem);
+  left: 50%;
+  translate: -50% 0;
+}
+
+life-week week-note.left {
+  top: 50%;
+  left: auto;
+  right: calc(100% + 0.65rem);
+  translate: 0 -50%;
+}
+
+life-week week-note.right {
+  top: 50%;
+  left: calc(100% + 0.65rem);
+  translate: 0 -50%;
+}
+
+.week-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  font-size: 0.95rem;
+  margin-inline: auto;
+
+  li {
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  span {
+    display: inline-flex;
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+    border-radius: 0.25rem;
+    border: 1px solid hsl(240 20% 70%);
+  }
+
+  span[data-variant="past"] {
+    background: hsl(210 20% 88%);
+  }
+
+  span[data-variant="current"] {
+    background: hsl(25 95% 80%);
+    border-color: hsl(25 95% 55%);
+  }
+
+  span[data-variant="future"] {
+    background: transparent;
+  }
+
+  span[data-variant="birthday"] {
+    background: hsl(320 70% 80%);
+    border-color: hsl(320 70% 50%);
+  }
+
+  span[data-variant="annotated"] {
+    background: hsl(150 40% 78%);
+    border-color: hsl(150 35% 45%);
+  }
+}
