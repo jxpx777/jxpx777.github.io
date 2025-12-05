@@ -1,0 +1,28 @@
+@layer components {
+  blockquote {
+    font-style: italic;
+  }
+
+  figure:has(blockquote) {
+    border: solid 1px var(--alloy-accent);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    position: relative;
+    text-align: center;
+    blockquote:before {
+      content: "“";
+      font-family: serif;
+      font-size: 3em;
+      opacity: 0.4;
+      position: absolute;
+      top: 2rem;
+      left: 1rem;
+    }
+    figcaption {
+      text-align-last: end;
+      &:before {
+        content: "—";
+      }
+    }
+  }
+}

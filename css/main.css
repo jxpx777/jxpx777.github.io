@@ -4,6 +4,5 @@
 @import "base.css";
 @import "layout.css";
 @import "typography.css";
-@import "components/header.css";
-@import "components/footer.css";
+@import "components/index.css";
 @import "content.css";
