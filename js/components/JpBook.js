@@ -12,6 +12,9 @@ customElements.define(
         lang: this.getAttribute("lang"),
         isbn: this.getAttribute("isbn"),
         format: this.getAttribute("format") || "short",
+        // New (preformatted strings; you control punctuation & “and”/commas)
+        editors: (this.getAttribute("editors") || "").trim(),
+        translators: (this.getAttribute("translators") || "").trim(),
       };
 
       let html = "";
@@ -32,7 +35,8 @@ customElements.define(
 );
 
 function renderShort(data) {
-  const { title, author, url, publisher, year, isbn } = data;
+  const { title, author, url, publisher, year, isbn, editors, translators } =
+    data;
 
   const citeHTML = url
     ? `<a href="${url}" class="p-name u-url"><cite>${title}</cite></a>`
@@ -44,9 +48,12 @@ function renderShort(data) {
   if (publisher) hoverParts.push(publisher);
   if (year) hoverParts.push(year);
   if (isbn) hoverParts.push(`ISBN: ${isbn}`);
+  // Add editors/translators to hover for extra context (short stays visually compact)
+  if (editors) hoverParts.push(`Edited by ${editors}`);
+  if (translators) hoverParts.push(`Translated by ${translators}`);
 
   const titleAttr = hoverParts.length
-    ? ` title="${title} by ${author}, ${hoverParts.join(", ")}"`
+    ? ` title="${title} by ${author}${hoverParts.length ? ", " + hoverParts.join(", ") : ""}"`
     : "";
 
   return `
@@ -56,6 +63,7 @@ function renderShort(data) {
 	`;
 }
 
+// Keeping for reference, unchanged behavior
 function renderLongOld(data) {
   const { title, author, url, publisher, year, isbn } = data;
 
@@ -89,7 +97,17 @@ function renderLongOld(data) {
 }
 
 function renderLong(data) {
-  const { title, author, url, publisher, place, year, isbn } = data;
+  const {
+    title,
+    author,
+    url,
+    publisher,
+    place,
+    year,
+    isbn,
+    editors,
+    translators,
+  } = data;
 
   const titleHTML = url
     ? `<a href="${url}" class="p-name u-url"><cite>${title}</cite></a>`
@@ -101,10 +119,27 @@ function renderLong(data) {
 
   let parts = [];
 
-  // author + title
+  // author + title (unchanged structure)
   parts.push(`${authorHTML}. ${titleHTML}. `);
 
-  // publication segment
+  // NEW: post-title contributors (microformats-friendly)
+  const contribBits = [];
+  if (editors) {
+    // p-contributor is the mf2 class for additional credited persons
+    contribBits.push(
+      `Edited by <span class="p-contributor h-card">${editors}</span>`,
+    );
+  }
+  if (translators) {
+    contribBits.push(
+      `Translated by <span class="p-contributor h-card">${translators}</span>`,
+    );
+  }
+  if (contribBits.length) {
+    parts.push(contribBits.join("; ") + ". ");
+  }
+
+  // publication segment (as before)
   let pubSegment = "";
   if (place && publisher && yearHTML) {
     pubSegment = `${place}: <span class="p-publisher">${publisher}</span>, ${yearHTML}. `;
@@ -121,9 +156,9 @@ function renderLong(data) {
   }
   if (pubSegment) parts.push(pubSegment);
 
-  // ISBN (if present, attach with semicolon, no leading space)
+  // ISBN (unchanged; semicolon rule)
   if (isbn) {
-    parts[parts.length - 1] = parts[parts.length - 1].replace(/\.\s*$/, ""); // trim trailing period/space
+    parts[parts.length - 1] = parts[parts.length - 1].replace(/\.\s*$/, "");
     parts.push(`; ISBN <span class="u-uid">${isbn}</span>.`);
   }
 
