@@ -1,8 +1,613 @@
 [
   {
-    "slug": "20250714-apple-music-classical",
-    "title": "Apple Music Classical doesn't understand classical music.",
-    "summary": "Apple acquired a music service dedicated to classical music, but that didn't include classical music sensibilities. Here are three examples where Apple Music Classical misses expectations.",
-    "published": "2025-07-19T00:00:00-0800"
+    "slug": "20251201-lessons-from-linkedin-account-compromise",
+    "title": "Lessons learned from my LinkedIn account takeover",
+    "summary": "Lessons I learned—as a user and as a software developer—when my LinkedIn account was compromised for several days in October 2025.",
+    "published": "2025-12-01T15:54:00-0800"
+  },
+  {
+    "slug": "20250719-apple-music-classical",
+    "title": "Apple Music Classical doesn’t understand classical music.",
+    "summary": "Apple acquired a music service dedicated to classical music, but that didn’t include classical music sensibilities. Here are three examples where Apple Music Classical misses expectations.",
+    "published": "2025-07-19T00:00:00-0800",
+    "updated": "2025-07-27T00:00:00-0800"
+  },
+  {
+    "slug": "20230202-capturing-quotes-and-highlights-from-audiobooks",
+    "title": "Capturing Quotes and Highlights from Audiobooks",
+    "summary": "",
+    "published": "2023-02-02T16:00:27-0600",
+    "updated": "2023-03-02T18:58:05-0600"
+  },
+  {
+    "slug": "20221226-coxmas-2022",
+    "title": "Coxmas 2022",
+    "summary": "",
+    "published": "2022-12-26T14:14:30-0600",
+    "updated": "2022-12-26T14:14:33-0600"
+  },
+  {
+    "slug": "20210426-962",
+    "title": "Post 962",
+    "summary": "Want to read: Full Spectrum: How the Science of Color Made Us Modern by Adam Rogers, ISBN: 9781328518903",
+    "published": "2021-04-26T12:19:39-0500",
+    "updated": "2021-04-26T12:20:33-0500"
+  },
+  {
+    "slug": "20200408-803",
+    "title": "I was today years old when I learned that the constituent words of the compound…",
+    "summary": "",
+    "published": "2020-04-08T01:53:38-0500"
+  },
+  {
+    "slug": "20200309-797",
+    "title": "The slow growth of iMessage for Business makes me miss Path Talk a little bit le…",
+    "summary": "",
+    "published": "2020-03-09T14:14:07-0500"
+  },
+  {
+    "slug": "20180904-530",
+    "title": "I’m looking for some new books to read. I generally prefer non-fiction, and I’ve…",
+    "summary": "",
+    "published": "2018-09-04T20:58:22-0500"
+  },
+  {
+    "slug": "20180620-how-to-bounce-back",
+    "title": "The problem is, even though we're no longer bumping into wolves, we're constantl…",
+    "summary": "",
+    "published": "2018-06-20T18:10:13-0500",
+    "updated": "2018-08-12T12:50:09-0500"
+  },
+  {
+    "slug": "20180601-315",
+    "title": "iOS 12 wishlist: better reply suggestions for credit card fraud alerts",
+    "summary": "",
+    "published": "2018-06-01T14:02:31-0500"
+  },
+  {
+    "slug": "20180531-shadow-selfie",
+    "title": "Post 313",
+    "summary": "",
+    "published": "2018-05-31T10:07:43-0500",
+    "updated": "2019-07-24T20:33:02-0500"
+  },
+  {
+    "slug": "20180517-303",
+    "title": "This article from Texas Monthly is like a gut punch to my upbringing: The old sa…",
+    "summary": "",
+    "published": "2018-05-17T09:37:17-0500"
+  },
+  {
+    "slug": "20180514-stevie",
+    "title": "A cat recently started visiting our front porch. Ann Margaret decided to name th…",
+    "summary": "",
+    "published": "2018-05-14T22:18:05-0500",
+    "updated": "2018-05-14T22:18:06-0500"
+  },
+  {
+    "slug": "20180514-296",
+    "title": "Relieved to hear that my preferred email client is not vulnerable to EFAIL !",
+    "summary": "",
+    "published": "2018-05-14T20:11:24-0500",
+    "updated": "2019-02-24T12:44:19-0600"
+  },
+  {
+    "slug": "20180308-an-outsiders-guide-to-glacier-national-park",
+    "title": "An Outsider’s Guide to Glacier National Park",
+    "summary": "",
+    "published": "2018-03-08T17:59:01-0600"
+  },
+  {
+    "slug": "20171204-218",
+    "title": "It's been a few years since I first saw this video, but it came up again recentl…",
+    "summary": "",
+    "published": "2017-12-04T14:22:35-0600"
+  },
+  {
+    "slug": "20171123-179",
+    "title": "?",
+    "summary": "",
+    "published": "2017-11-23T23:58:17-0600"
+  },
+  {
+    "slug": "20171111-149",
+    "title": "It’s 9:00 in the morning. Ah! It’s not a four-way. Hmph And I need your help. Ug…",
+    "summary": "",
+    "published": "2017-11-11T10:05:49-0500",
+    "updated": "2019-07-24T20:37:44-0500"
+  },
+  {
+    "slug": "20171109-147",
+    "title": "After totally breaking down many pairs of Bombas , I’m gonna see if Darn Tough ’…",
+    "summary": "",
+    "published": "2017-11-09T12:22:27-0600",
+    "updated": "2018-08-12T10:56:13-0500"
+  },
+  {
+    "slug": "20171107-143",
+    "title": "My iPhone X review:",
+    "summary": "",
+    "published": "2017-11-07T21:43:32-0600",
+    "updated": "2018-03-04T21:36:30-0600"
+  },
+  {
+    "slug": "20171107-141",
+    "title": "I honestly don’t know how people do iOS dev full time on a 15” screen. It’s brut…",
+    "summary": "",
+    "published": "2017-11-07T18:36:34-0600",
+    "updated": "2017-12-04T14:05:47-0600"
+  },
+  {
+    "slug": "20171107-ivoted",
+    "title": "#ivoted",
+    "summary": "",
+    "published": "2017-11-07T17:23:55-0600",
+    "updated": "2018-03-04T21:38:01-0600"
+  },
+  {
+    "slug": "20171106-one-of-the-most-anti-lgbt-lawmakers-in-the-country-might-lose-his-seat-to-a-transgender-journalist",
+    "title": "One of the most anti-LGBT lawmakers in the country might lose his seat to a transgender journalist",
+    "summary": "",
+    "published": "2017-11-06T16:09:16-0600",
+    "updated": "2017-12-04T14:05:46-0600"
+  },
+  {
+    "slug": "20171106-121",
+    "title": "App: The Human Story will be released this month. Watch the trailer below. I jus…",
+    "summary": "",
+    "published": "2017-11-06T14:13:56-0600",
+    "updated": "2017-12-04T14:05:46-0600"
+  },
+  {
+    "slug": "20171105-117",
+    "title": "Are the multi-emoji suggestions new in 11.1 or specific to iPhone X?",
+    "summary": "",
+    "published": "2017-11-05T20:36:16+0000",
+    "updated": "2018-03-04T21:39:23-0600"
+  },
+  {
+    "slug": "20171105-114",
+    "title": "I’m looking a photo filtering app like PhotoToaster but that can apply edits to…",
+    "summary": "",
+    "published": "2017-11-05T18:15:13+0000",
+    "updated": "2017-12-04T14:05:46-0600"
+  },
+  {
+    "slug": "20171105-111",
+    "title": "The dogs are all vying for control of the new Rumpl blanket. Right now, Sophie h…",
+    "summary": "",
+    "published": "2017-11-05T17:51:16+0000",
+    "updated": "2018-03-04T21:40:18-0600"
+  },
+  {
+    "slug": "20171104-107",
+    "title": "Why does the status bar move when I bring down control center on iPhone X?!",
+    "summary": "",
+    "published": "2017-11-04T18:03:07+0000"
+  },
+  {
+    "slug": "20171103-99",
+    "title": "Raise your hand if you forgot to iTunes backup until you had iPhone X on your de…",
+    "summary": "",
+    "published": "2017-11-03T22:49:00+0000"
+  },
+  {
+    "slug": "20171103-93",
+    "title": "Brilliant. (via @rands )",
+    "summary": "",
+    "published": "2017-11-03T18:45:30+0000",
+    "updated": "2018-03-04T21:42:25-0600"
+  },
+  {
+    "slug": "20171103-85",
+    "title": "Post 85",
+    "summary": "",
+    "published": "2017-11-03T04:45:03+0000",
+    "updated": "2017-11-03T20:19:08+0000"
+  },
+  {
+    "slug": "20171103-80",
+    "title": "Finally moving my blog back to WordPress and getting my Micro.blog going. Pardon…",
+    "summary": "",
+    "published": "2017-11-03T02:38:34+0000"
+  },
+  {
+    "slug": "20160511-253",
+    "title": "Career Milestone for Ann Margaret",
+    "summary": "",
+    "published": "2016-05-11T16:53:36-0500",
+    "updated": "2018-03-08T17:16:50-0600"
+  },
+  {
+    "slug": "20150825-sentiment-building-to-deport-nations-billionaires",
+    "title": "Sentiment Building to Deport Nation’s Billionaires",
+    "summary": "",
+    "published": "2015-08-25T17:40:13-0500",
+    "updated": "2018-03-08T17:44:00-0600"
+  },
+  {
+    "slug": "20150704-lose-yourself",
+    "title": "\"Lose Yourself\"",
+    "summary": "",
+    "published": "2015-07-04T00:00:17-0500",
+    "updated": "2018-03-08T17:57:41-0600"
+  },
+  {
+    "slug": "20150616-what-ruined-it",
+    "title": "\"What ruined it\"",
+    "summary": "",
+    "published": "2015-06-16T00:00:27-0500",
+    "updated": "2018-03-08T17:53:42-0600"
+  },
+  {
+    "slug": "20150521-wizardry-and-the-sony-ericsson-t637",
+    "title": "Recently, the Connected crew were discussing ideas for iOS 9 and describing putt…",
+    "summary": "",
+    "published": "2015-05-21T00:00:26-0500",
+    "updated": "2018-03-09T15:21:04-0600"
+  },
+  {
+    "slug": "20141128-star-wars-vii-trailer",
+    "title": "Star Wars: The Force Awakens — Trailer",
+    "summary": "",
+    "published": "2014-11-28T09:36:05-0600",
+    "updated": "2018-08-12T11:52:11-0500"
+  },
+  {
+    "slug": "20141127-thanksgiving",
+    "title": "Thanksgiving",
+    "summary": "",
+    "published": "2014-11-27T00:00:27-0600",
+    "updated": "2018-08-12T11:44:20-0500"
+  },
+  {
+    "slug": "20141119-378",
+    "title": "Richard Greenfield : The content originates from Time Warner Cable's digital cen…",
+    "summary": "",
+    "published": "2014-11-19T15:02:53-0600",
+    "updated": "2018-08-12T11:58:50-0500"
+  },
+  {
+    "slug": "20141116-the-swing",
+    "title": "The Swing",
+    "summary": "",
+    "published": "2014-11-16T10:56:52-0600",
+    "updated": "2018-08-12T12:25:14-0500"
+  },
+  {
+    "slug": "20141105-star-wars-weather-forecast",
+    "title": "Star Wars Weather Forecast",
+    "summary": "",
+    "published": "2014-11-05T15:01:33-0600",
+    "updated": "2018-08-12T12:28:24-0500"
+  },
+  {
+    "slug": "20141030-this-is-my-brick",
+    "title": "\"This is my brick\"",
+    "summary": "",
+    "published": "2014-10-30T10:15:50-0500",
+    "updated": "2018-08-12T12:31:19-0500"
+  },
+  {
+    "slug": "20141028-write-a-cross-platform-markdown-writing-app",
+    "title": "Write, a cross-platform Markdown writing app",
+    "summary": "",
+    "published": "2014-10-28T02:18:38-0500",
+    "updated": "2018-08-12T11:21:51-0500"
+  },
+  {
+    "slug": "20140922-getting-more-balanced",
+    "title": "Getting More Balanced",
+    "summary": "",
+    "published": "2014-09-22T13:30:11-0500",
+    "updated": "2018-08-12T11:12:57-0500"
+  },
+  {
+    "slug": "20140921-342",
+    "title": "Like Katie Floyd , I have had a lot of trouble integrating LaunchCenter Pro (als…",
+    "summary": "",
+    "published": "2014-09-21T14:37:47-0500",
+    "updated": "2018-08-11T19:03:37-0500"
+  },
+  {
+    "slug": "20131124-thank-you-sean",
+    "title": "Sean \"Fosse\" Phelps: September 1, 2002(?)–November 16, 2013",
+    "summary": "",
+    "published": "2013-11-24T19:18:27-0600",
+    "updated": "2018-08-12T12:23:23-0500"
+  },
+  {
+    "slug": "20130428-attention-distraction-and-procrastination",
+    "title": "Attention, Distraction, and Procrastination",
+    "summary": "",
+    "published": "2013-04-28T16:43:05-0500",
+    "updated": "2019-02-24T12:34:05-0600"
+  },
+  {
+    "slug": "20130419-west",
+    "title": "West",
+    "summary": "",
+    "published": "2013-04-19T15:47:03-0500",
+    "updated": "2019-02-24T11:46:59-0600"
+  },
+  {
+    "slug": "20130413-penn-teller-verizon-theatre-at-grand-prairie",
+    "title": "Penn & Teller - Verizon Theatre at Grand Prairie",
+    "summary": "",
+    "published": "2013-04-13T15:39:46-0500",
+    "updated": "2019-02-24T11:42:54-0600"
+  },
+  {
+    "slug": "20121215-avoid-linking-icloud-email-address-to-non-icloud-apple-ids",
+    "title": "Avoid Linking iCloud Email Address to Non-iCloud Apple ID's",
+    "summary": "",
+    "published": "2012-12-15T14:00:17-0600",
+    "updated": "2018-08-12T14:14:37-0500"
+  },
+  {
+    "slug": "20121210-post-op-recovery-software",
+    "title": "Post-op Recovery Software",
+    "summary": "",
+    "published": "2012-12-10T15:57:55-0600",
+    "updated": "2018-08-12T14:13:03-0500"
+  },
+  {
+    "slug": "20121126-off-balance",
+    "title": "Life is a whole lot more fun when you can keep other people just a little off-ba…",
+    "summary": "",
+    "published": "2012-11-26T10:23:33-0600",
+    "updated": "2018-08-12T14:09:40-0500"
+  },
+  {
+    "slug": "20121118-post-op-computing",
+    "title": "Three Saturdays ago, I tore my right ACL playing ultimate frisbee. The last week…",
+    "summary": "",
+    "published": "2012-11-18T11:45:17-0600",
+    "updated": "2018-08-12T14:08:18-0500"
+  },
+  {
+    "slug": "20121113-election-2012",
+    "title": "Here are two things anyone that knows me will corroborate. First, I'm a prick, s…",
+    "summary": "",
+    "published": "2012-11-13T17:09:56-0600",
+    "updated": "2018-08-12T14:06:44-0500"
+  },
+  {
+    "slug": "20120916-tuba-mirum",
+    "title": "\"That sucked,\" I said to myself as I walked out of the auditorium. For the first…",
+    "summary": "",
+    "published": "2012-09-16T10:08:00-0500",
+    "updated": "2018-08-12T14:04:45-0500"
+  },
+  {
+    "slug": "20120905-anxiety-relief-ball",
+    "title": "Yesterday's Back to Work covered obsessions, compulsions, and the accompanying a…",
+    "summary": "",
+    "published": "2012-09-05T16:45:41-0500",
+    "updated": "2018-08-12T14:02:54-0500"
+  },
+  {
+    "slug": "20120902-staying-on-top-of-calendar-events",
+    "title": "Staying on Top of Calendar Events",
+    "summary": "",
+    "published": "2012-09-02T22:14:38-0500",
+    "updated": "2019-02-24T12:32:05-0600"
+  },
+  {
+    "slug": "20120731-emphatically-stop-giving-a-shit",
+    "title": "How can you overcome your envy of people who are your age but are far more successful?",
+    "summary": "",
+    "published": "2012-07-31T15:09:11-0500",
+    "updated": "2018-08-12T13:58:24-0500"
+  },
+  {
+    "slug": "20120729-twitter-feeds",
+    "title": "Feeds I'm Following",
+    "summary": "",
+    "published": "2012-07-29T16:18:53-0500",
+    "updated": "2018-08-12T13:56:50-0500"
+  },
+  {
+    "slug": "20120512-review-leaf-hd-antenna",
+    "title": "Review: Leaf HD Antenna",
+    "summary": "",
+    "published": "2012-05-12T10:47:58-0500",
+    "updated": "2018-08-12T13:54:34-0500"
+  },
+  {
+    "slug": "20120510-1password-omnifocus",
+    "title": "1Password 1Click Bookmarks and OmniFocus",
+    "summary": "",
+    "published": "2012-05-10T20:41:42-0500",
+    "updated": "2018-08-12T13:52:38-0500"
+  },
+  {
+    "slug": "20120423-ifttt-recipe-for-back-to-work-live-stream-notifications",
+    "title": "IFTTT Recipe for Back to Work Live Stream Notifications",
+    "summary": "",
+    "published": "2012-04-23T15:04:24-0500",
+    "updated": "2018-08-12T13:47:22-0500"
+  },
+  {
+    "slug": "20120411-deactivated-facebook",
+    "title": "I've deactivated my Facebook account. If you want to keep in touch or need to co…",
+    "summary": "",
+    "published": "2012-04-11T13:14:47-0500",
+    "updated": "2018-08-12T13:46:10-0500"
+  },
+  {
+    "slug": "20120129-backups",
+    "title": "Backups",
+    "summary": "",
+    "published": "2012-01-29T11:42:32-0600",
+    "updated": "2018-08-12T13:44:21-0500"
+  },
+  {
+    "slug": "20120126-be-careful-not-scared",
+    "title": "Be Careful, Not Scared",
+    "summary": "",
+    "published": "2012-01-26T18:42:42-0600",
+    "updated": "2018-08-12T13:38:33-0500"
+  },
+  {
+    "slug": "20120126-moose-shovel-love",
+    "title": "Just a friendly heads up that my lovely wife @slb has won the Internet , so you…",
+    "summary": "",
+    "published": "2012-01-26T07:47:53-0600",
+    "updated": "2018-08-12T13:41:16-0500"
+  },
+  {
+    "slug": "20120123-the-lost-art-of-the-toast",
+    "title": "The Lost Art of the Toast",
+    "summary": "",
+    "published": "2012-01-23T10:32:21-0600",
+    "updated": "2025-10-13T10:58:00-0700"
+  },
+  {
+    "slug": "20120121-first-set",
+    "title": "First Set Performance",
+    "summary": "",
+    "published": "2012-01-21T16:05:15-0600",
+    "updated": "2018-08-12T13:33:01-0500"
+  },
+  {
+    "slug": "20111209-ability-to-care",
+    "title": "This, then, may be the one great secret that keeps the uninitiated out of the \"i…",
+    "summary": "",
+    "published": "2011-12-09T17:05:35-0600",
+    "updated": "2018-08-12T13:30:04-0500"
+  },
+  {
+    "slug": "20111208-looking-forward-to-a-rock-and-roll-show",
+    "title": "Looking forward to a rock and roll show",
+    "summary": "",
+    "published": "2011-12-08T15:33:12-0600",
+    "updated": "2018-08-12T13:28:18-0500"
+  },
+  {
+    "slug": "20111130-in-your-arms",
+    "title": "Speaking of trying really hard: Here's the \"making of\" video Could they have don…",
+    "summary": "",
+    "published": "2011-11-30T17:50:57-0600",
+    "updated": "2018-08-12T13:24:56-0500"
+  },
+  {
+    "slug": "20111111-better-card-fans",
+    "title": "My card fans were bad. I mean awful. They were uneven, clumpy, and slow, which m…",
+    "summary": "",
+    "published": "2011-11-11T22:26:14-0600",
+    "updated": "2018-08-12T13:22:29-0500"
+  },
+  {
+    "slug": "20111010-delight",
+    "title": "Friday night, my wife and I went to a high school football game to see our niece…",
+    "summary": "",
+    "published": "2011-10-10T18:47:38-0500",
+    "updated": "2018-08-12T13:20:54-0500"
+  },
+  {
+    "slug": "20111005-first-modification",
+    "title": "Today was the first time I applied knowledge I picked up from one source and app…",
+    "summary": "",
+    "published": "2011-10-05T18:40:36-0500",
+    "updated": "2018-08-12T13:19:26-0500"
+  },
+  {
+    "slug": "20111003-john-carney-transplant",
+    "title": "http://www.youtube.com/v5Hlo4UnovU I've been working on this trick for just a fe…",
+    "summary": "",
+    "published": "2011-10-03T19:36:00-0500",
+    "updated": "2018-08-12T13:14:29-0500"
+  },
+  {
+    "slug": "20111003-rebounding",
+    "title": "Remember when I said I bombed those two tricks before? Well, tonight I sat down…",
+    "summary": "",
+    "published": "2011-10-03T18:38:31-0500",
+    "updated": "2018-08-12T13:12:47-0500"
+  },
+  {
+    "slug": "20111001-bombing",
+    "title": "I've been working on a couple of card tricks lately from Royal Road and been fee…",
+    "summary": "",
+    "published": "2011-10-01T18:33:44-0500",
+    "updated": "2018-08-12T13:06:55-0500"
+  },
+  {
+    "slug": "20111001-forego-meta",
+    "title": "The way I approach learning magic, there are three modes in which I find myself…",
+    "summary": "",
+    "published": "2011-10-01T15:21:19-0500",
+    "updated": "2018-08-12T13:09:20-0500"
+  },
+  {
+    "slug": "20110924-more-subtle",
+    "title": "More Subtle",
+    "summary": "",
+    "published": "2011-09-24T17:24:25-0500",
+    "updated": "2018-08-12T13:04:20-0500"
+  },
+  {
+    "slug": "20110914-first",
+    "title": "First!",
+    "summary": "",
+    "published": "2011-09-14T18:52:03-0500",
+    "updated": "2018-08-12T13:03:13-0500"
+  },
+  {
+    "slug": "20110729-hours-of-incessant-practice",
+    "title": "Hours of Incessant Practice",
+    "summary": "",
+    "published": "2011-07-29T08:24:43-0500",
+    "updated": "2018-08-12T13:01:42-0500"
+  },
+  {
+    "slug": "20110724-the-weekly-magic-failure-have-another-one-and-one-more",
+    "title": "The Weekly Magic Failure: Have another one... and one more!",
+    "summary": "",
+    "published": "2011-07-24T10:43:50-0500",
+    "updated": "2018-08-12T12:57:27-0500"
+  },
+  {
+    "slug": "20110710-be-open-to-the-unexpected",
+    "title": "Be open to the unexpected",
+    "summary": "",
+    "published": "2011-07-10T11:14:40-0500",
+    "updated": "2018-08-12T12:55:38-0500"
+  },
+  {
+    "slug": "20101231-new-years-post",
+    "title": "New Year's Post",
+    "summary": "",
+    "published": "2010-12-31T12:49:08-0600",
+    "updated": "2018-08-12T12:54:08-0500"
+  },
+  {
+    "slug": "20101111-super-sad-excuses-triquarterly-online",
+    "title": "Super Sad Excuses | TriQuarterly Online",
+    "summary": "",
+    "published": "2010-11-11T09:49:28-0600",
+    "updated": "2018-08-12T12:51:55-0500"
+  },
+  {
+    "slug": "20101106-final-choices-and-sensible-defaults",
+    "title": "Final Choices and Sensible Defaults",
+    "summary": "",
+    "published": "2010-11-06T18:36:51-0500",
+    "updated": "2018-08-12T12:39:15-0500"
+  },
+  {
+    "slug": "20101024-contemplating-mac-app-store",
+    "title": "Contemplating Mac App Store",
+    "summary": "",
+    "published": "2010-10-24T10:24:26-0500",
+    "updated": "2018-08-12T12:35:50-0500"
+  },
+  {
+    "slug": "20101018-a-convention-for-action-specific-javascript-in-rails",
+    "title": "A convention for action-specific Javascript in Rails",
+    "summary": "",
+    "published": "2010-10-18T08:19:37-0500",
+    "updated": "2019-02-24T11:31:15-0600"
   }
 ]

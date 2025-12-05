@@ -8,38 +8,1000 @@
 		<logo>https://jxpx777.me/apple-touch-icon.png</logo>
 		<link rel="alternate" href="https://jxpx777.me/blog/" />
 		<link rel="self" href="https://jxpx777.me/blog/feed.xml" />
-		<updated>2025-07-19T08:00:00.000Z</updated>
+		<updated>2025-12-01T23:54:00.000Z</updated>
 		<author>
 				<name>Jamie Phelps</name>
 		</author>
 		<entry>
-				<title><![CDATA[Apple Music Classical doesn't understand classical music.]]></title>
+				<title><![CDATA[Lessons learned from my LinkedIn account takeover]]></title>
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20250714-apple-music-classical/" />
-				<id>https://plainvanillaweb.com/blog/articles/20250714-apple-music-classical/</id>
-				<published>2025-07-19T08:00:00.000Z</published>
-				<updated>2025-07-19T08:00:00.000Z</updated>
-				<summary><![CDATA[Apple acquired a music service dedicated to classical music, but that didn't include classical music sensibilities. Here are three examples where Apple Music Classical misses expectations.]]></summary>
+      href="https://plainvanillaweb.com/blog/articles/20251201-lessons-from-linkedin-account-compromise/" />
+				<id>https://plainvanillaweb.com/blog/articles/20251201-lessons-from-linkedin-account-compromise/</id>
+				<published>2025-12-01T23:54:00.000Z</published>
+				<updated>2025-12-01T23:54:00.000Z</updated>
+				<summary><![CDATA[Lessons I learned—as a user and as a software developer—when my LinkedIn account was compromised for several days in October 2025.]]></summary>
 
 
 				<content
       type="html"><![CDATA[
 				<header>
 					<h1 class="p-name">
-						Apple Music Classical doesn't understand classical music.
+						Lessons learned from my LinkedIn account takeover
 					</h1>
 				</header>
 				<div class="e-content">
-					<!-- Background, acquisition -->
-					<p></p>
+					<h1 id="lessons-learned-from-my-linkedin-account-takeover">
+						Lessons learned from my LinkedIn account takeover
+					</h1>
 
-					<!-- Launch of Apple Music Classical -->
-					<!-- Bugs and gaps -->
+					<p>
+						In early October 2025, I woke to several questions from colleagues
+						about messages they received from my LinkedIn account. That’s how I
+						learned that my account had been compromised. What followed was a
+						few hours of cat-and-mouse with the attackers and several days of
+						efforts to regain control of my account. Now that it’s in the past
+						and I have had time to reflect, I think it’s important to share some
+						insights gleaned from the experience, both for users of internet
+						software and for platform owners.
+					</p>
+
+					<h2 id="the-exploit">The Exploit</h2>
+
+					<p>
+						First, how did the attackers gain access to my account? I pride
+						myself on my information security and have a pretty good
+						understanding of my own threat model and available options for
+						security. I was shocked to find I had been compromised.
+					</p>
+
+					<p>
+						The issue stemmed from a defunct email address on a domain I used to
+						own and the fact that LinkedIn allows signing in with any of the
+						emails you have attached to your account. The attackers discovered
+						that I had an email address still on my LinkedIn account from an old
+						web consulting business I operated tied to a domain I no longer own.
+						They registered the domain and created an email address that matched
+						the email still associated with my LinkedIn account.
+					</p>
+
+					<p>
+						The lesson I take from this is that decommissioning a domain,
+						particularly one with associated email addresses, needs to be like
+						decommissioning a nuclear reactor: a thorough checklist of things to
+						wind down, check, and mitigate before allowing the domain to expire,
+						with examples to trigger your memory about things you might
+						overlook.
+					</p>
+
+					<p>
+						For website operators, an important question is whether you should
+						allow a user to associate multiple email addresses to their account.
+						If you do—for instance, LinkedIn might want to allow a person with a
+						full-time job and a freelance side hustle to be found by potential
+						connections that would only have one or the other address—consider
+						whether it should be valid to use those secondary emails for signing
+						in. As of this writing, both LinkedIn and GitHub allow signing in
+						with an email address other than the primary one. Perhaps there are
+						good reasons for this, but I question the value given the risks. For
+						providers of critical services like GitHub or NPM, I think proactive
+						monitoring of email address domains for expiration, transfer, or MX
+						record changes should be on the table.
+					</p>
+
+					<h3 id="two-factor-authentication">Two-factor Authentication</h3>
+
+					<p>
+						Right now, it’s an open question to me whether I had two-factor
+						authentication enabled on my LinkedIn account at the time of the
+						attack. After I regained control over my account, I did enable it,
+						but LinkedIn’s activity audit doesn’t list enabling or disabling
+						two-factor authentication, so I am left to wonder if the attackers
+						removed it or if I had neglected to add it in the beginning.
+					</p>
+
+					<p>
+						As part of periodic review of accounts, it’s advisable to compare
+						the sites you use to a list of two-factor authentication–enabled
+						websites such as
+						<a href="https://2fa.directory/us/">2fa.directory</a>. It’s possible
+						that a service adds 2FA support or that its support for various
+						kinds of factors has changed since you enabled a different factor.
+						Particularly, migrating from SMS or a proprietary 2FA scheme to use
+						TOTP or hardware security keys is a significant upgrade.
+					</p>
+
+					<h2 id="the-liminal-period">The Liminal Period</h2>
+
+					<h3 id="passkeys">Passkeys</h3>
+
+					<p>
+						At first, I was able to sign in and do some in-the-moment battle
+						with the attackers because I had a passkey attached to my LinkedIn
+						account. They repeatedly signed my sessions out and I could imagine
+						their confusion as I immediately signed back in. During this time, I
+						was able to contradict the messages they were sending to my
+						contacts. What I wasn’t able to do was perform any operation that
+						required the password for the account. Eventually, the attackers
+						grew wise and removed my passkey from the account.
+					</p>
+
+					<p>
+						As software engineers, we need to be deeply thoughtful about
+						adopting new technologies. When passkeys launched, many sites,
+						particularly geared toward developers or the security minded, wanted
+						to be on the left side of the adoption curve. We built passkey
+						functionality into their account management pages and their sign in
+						screens and updated the release notes. But we didn’t all think
+						through the full breadth of authentication pause points built into
+						our software. If a user has possession of the passkey for an
+						account, shouldn’t that be sufficient authentication to perform
+						operations that can be authenticated via password—change the
+						password or email, remove an email address, change the primary email
+						address? These are important product questions when making changes
+						to the authentication mechanisms in our software and failing to make
+						clear decisions can leave us vulnerable in the gaps.
+					</p>
+
+					<h3 id="report-abuse">Report Abuse</h3>
+
+					<p>
+						I also struck at the root of the problem, which was the registrar
+						and host associated with the domain. I called the Registrar Abuse
+						Contact Phone number returned by a whois query on the domain. I
+						shared what the registrant was using the domain for and they
+						promised an investigation. Unfortunately, as of this writing, the
+						domain is still registered with the same registrar.
+					</p>
+
+					<h3 id="identity-verification">Identity Verification</h3>
+
+					<p>
+						Resetting the password on the account was the only operation on the
+						account that <em>required</em> access to the primary email address.
+						LinkedIn
+						<a href="https://www.linkedin.com/help/linkedin/answer/a1382107">has</a>
+						a mechanism for regaining access to an account when you do not have
+						access to the email address associated with the account.
+						Unfortunately, when you tell LinkedIn that you do not have access to
+						the email address, it sends an email to the account anyway and
+						allows someone controlling that address to rescind the request for
+						verification. I was confused because the verification failed to
+						launch; I thought it was potentially related to ad blocking or
+						iCloud Private Relay or some other system I use to protect myself
+						from the internet. But later, I figured out that this was happening
+						behind the scenes and the attackers were faster than I was.
+					</p>
+
+					<p>
+						I’m puzzled by this. Identity verification, where the user supplies
+						identification such as a driver license and takes a live selfie
+						during the same session, is one of the strongest proofs of identity
+						and onerous enough that the user wouldn’t choose to engage it if
+						they had access to the email address. And while attackers
+						<em>do</em> attempt identity verification processes with fraudulent
+						documents and dodgy photographic environments, a legitimate user
+						will be able to complete the verification process fairly easily with
+						a high degree of confidence.
+					</p>
+
+					<p>
+						I sent a support request about not being able to complete the
+						verification. I thought I didn’t receive a response, but it turned
+						out that the attackers closed the ticket because it was associated
+						to my account. We should think carefully about what an account can
+						and can’t do after requesting identity verification. Changing
+						passwords, adding or removing email addresses or authentication
+						schemes, establishing new OAuth connections, and archiving messages
+						or support tickets immediately come to mind as operations that
+						should be restricted.
+					</p>
+
+					<h2 id="recovery">Recovery</h2>
+
+					<p>
+						After a few days and with the initial frenzy relaxed, I tried
+						identity verification again. I completed the verification as quickly
+						as possible and my speed run apparently caught the attackers with
+						their defenses down and I was able to regain control over the
+						account.
+					</p>
+
+					<p>
+						The lesson for me as a user is that when things seem dire and you’ve
+						exhausted your options, it’s worth trying again. Maybe your read of
+						the situation wasn’t accurate, or you made too many assumptions.
+						Maybe the account was reported for abuse and has been disabled or
+						quarantined so that the attackers are restricted. Many things can
+						change, sometimes with notification and sometimes without, and those
+						can change the landscape of possibilities.
+					</p>
+
+					<p>
+						Mental models are crucial to dealing with technology issues, whether
+						that’s a compromised LinkedIn account or something more mundane like
+						a website that’s not allowing you to submit a form, a photo that
+						fails to sync, or an Internet-of-things device that’s not responding
+						to your voice assistant. Having a general idea of what happens when
+						we perform an action on our device or what an attacker in control of
+						a compromised account would be guarding against puts you in a better
+						position to identify options for improving the situation.
+					</p>
+
+					<h2 id="conclusion">Conclusion</h2>
+
+					<figure>
+						<blockquote cite="https://www.schneier.com/crypto-gram/archives/1999/1215.html">
+							Security is not a product; it’s a process.
+						</blockquote>
+						<figcaption>Bruce Schneier</figcaption>
+					</figure>
+
+					<p>
+						Overall, my LinkedIn account being compromised wasn’t the worst
+						thing in the world. At its worst, I thought I would lose my account
+						for good. At best, I knew my reputation would take a hit,
+						particularly in the eyes of security-conscious colleagues who didn’t
+						have all the facts. Most folks were sympathetic and forgiving, and I
+						was fortunate to recover with no permanent damage that I am aware
+						of. And I’m pleased to glean from the unpleasant episode some useful
+						lessons for users and developers. Stay safe out there!
+					</p>
 				</div>
 				<footer>
 
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[Apple Music Classical doesn’t understand classical music.]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/" />
+				<id>https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/</id>
+				<published>2025-07-19T08:00:00.000Z</published>
+				<updated>2025-07-27T08:00:00.000Z</updated>
+				<summary><![CDATA[Apple acquired a music service dedicated to classical music, but that didn’t include classical music sensibilities. Here are three examples where Apple Music Classical misses expectations.]]></summary>
+				<media:content
+      url="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/brahms-carplay-693.png"
+      type="image/png"
+      medium="image" />
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						Apple Music Classical Still Doesn’t Understand Classical Music
+					</h1>
+				</header>
+				<section class="e-content">
+					<p>
+						Apple Music Classical is a welcome upgrade after 25 years of iTunes
+						and Apple Music. I’ve spent countless hours wrangling metadata to
+						shoehorn classical works into the album–track model. Apple’s new app
+						feels like a breath of fresh air, but it isn’t flawless. Here are
+						three ways Apple Music Classical still lets classical listeners
+						down.
+					</p>
+
+					<h2>Siri arbitrarily orders movements</h2>
+					<p>
+						Driving home from a conducting workshop, I asked Siri to “play
+						Brahms’s Third Symphony.”
+					</p>
+					<p>
+						To its credit, Siri got the basics right: Brahms’s Symphony No. 3 on
+						Apple Music Classical, not the regular Apple Music. No "Can’t find
+						that" nonsense.
+					</p>
+					<p>
+						The result? Baffling. Even while driving, I <em>had</em> to snap a
+						screenshot:
+
+						<br><img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/brahms-carplay-693.png" srcset="
+								./images/brahms-carplay-347.png 347w,
+								./images/brahms-carplay-693.png 693w,
+								./images/brahms-carplay-1386.png 1386w,
+							" sizes="(max-width: 400px) 347px, 693px" "="" class="lightbox" alt="A screenshot of Apple CarPlay showing the track order created by Siri when asked to &quot;Play Brahms third symphony&quot;. The movements are in the order II, IV, I, with III the current track."><br>
+
+						The playback started with III and was to be followed by II, IV, and
+						I. If I ask for a work, start at the beginning. If I want a specific
+						movement, I will say so.
+					</p>
+
+					<h2>Apple Music Classical editors disregard works…</h2>
+					<p>
+						Recently, I dove into Dvořák. I know the "New World" Symphony well,
+						but little else. I found this playlist<jp-footnote id="dvorak"></jp-footnote>:
+					</p>
+					<p><a href="https://embed.music.apple.com/us/playlist/anton%C3%ADn-dvo%C5%99%C3%A1k-essentials/pl.e9a2ea836ac44812a8168976c6a94045">https://embed.music.apple.com/us/playlist/anton%C3%ADn-dvo%C5%99%C3%A1k-essentials/pl.e9a2ea836ac44812a8168976c6a94045</a></p>
+
+					<p>
+						The playlist includes only three of the four movements, scattered
+						and from different performances. Multi-movement works demand to be
+						heard whole. You can listen to a single movement—but deeper
+						appreciation comes from the arc of the entire work.
+					</p>
+
+					<h2>…and also performances</h2>
+					<p>
+						The movements from Dvořák’s Ninth come from different
+						performances—different conductors with different orchestras from a
+						narrow five-year time window.
+					</p>
+					<p>
+						A conductor interprets an entire work. Bernstein’s Shostakovich
+						Fifth—especially the finale—was a watershed interpretation that even
+						Shostakovich preferred. Comparing performances is one of classical
+						music's great pleasures, but it's undercut by Apple Music
+						Classical’s editors.
+					</p>
+					<p>
+						Elsewhere, Apple Music Classical nails this. Its design surfaces a
+						work’s variety of performances with a clear editorial perspective.
+						<br><img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/shostakovich-fifth-603.png" srcset="
+								./images/shostakovich-fifth-302.png   302w,
+								./images/shostakovich-fifth-603.png   603w,
+								./images/shostakovich-fifth-1206.png 1206w
+							" sizes="(max-width: 650px) 302px, 603px" class="lightbox" alt="A screenshot of Apple Music Classical’s view of Shostakovich’s fifth symphony showing an Editor’s Choice performance with Listening Guide and then additional performances."><br>
+						Here, editors spotlight a quintessential recording, foreground the
+						diversity of performances, and provide context for the symphony’s
+						reception and debates over interpretations. That’s excellent
+						curation.
+					</p>
+					<h2>Conclusion</h2>
+					<p>
+						Classical music can intimidate new listeners. Its work–movement
+						structure feels foreign in the age of streaming singles, and the
+						jargon doesn’t help. Apple Music Classical is uniquely positioned to
+						change that. If Apple truly cares about the genre—guiding new
+						listeners while earning connoisseurs’ trust—they must shoulder these
+						editorial responsibilities.
+					</p>
+				</section>
+				<footer>
+					<section class="footnotes">
+						<hr>
+						<ol>
+							<li>
+								<details>
+									<summary>
+										This is a live embed of the playlist, so it’s possible that
+										it has changed, but here’s the track list today,
+										<time datetime="2025-07-20">July 20, 2025</time>.<a href="#fnref-dvorak">↩</a>
+									</summary>
+									<figure>
+										<figcaption>
+											The playlist track listing in Apple Music on macOS and iOS
+										</figcaption>
+										<img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-mac.png" width="300" class="lightbox" alt="A screenshot showing the first fifteen tracks of the playlist."><br>
+										<img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-ios-1.png" width="200" class="lightbox" alt="A screenshot of the playlist on iOS. The first track, Movement I, is visible and spotlighted.">
+										<img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-ios-2.png" width="200" class="lightbox" alt="A screenshot further down the playlist. Several tracks are displayed; Movement II is spotlighted at the top of the list.">
+										<img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-ios-3.png" width="200" class="lightbox" alt="A screenshot of the bottom of the playlist. Several tracks are displayed; Movement IV, spotlighted, is the last track.">
+									</figure>
+								</details>
+							</li>
+						</ol>
+					</section>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[Capturing Quotes and Highlights from Audiobooks]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/" />
+				<id>https://plainvanillaweb.com/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/</id>
+				<published>2023-02-02T22:00:27.000Z</published>
+				<updated>2023-03-03T00:58:05.000Z</updated>
+				<summary><![CDATA[]]></summary>
+				<media:content
+      url="https://plainvanillaweb.com/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/images/IMG_FF06AADED8B1-1-138x300.jpeg"
+      type="image/jpeg"
+      medium="image" />
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						Capturing Quotes and Highlights from Audiobooks
+					</h1>
+				</header>
+				<section class="e-content">
+					I don't listen to many audiobooks, but when I do, I often wish for a way to capture some quote or reference without having to manually transcribe it. Luckily, by using tools that do one thing well and that embrace automation and interoperability, I've achieved this. The apps involved are <a href="https://highlighted.app">Highlighted</a>, <a href="https://overcast.fm">Overcast</a>, and <a href="https://apps.apple.com/us/app/voiceexpress-audio-to-text/id1434634466">VoiceExpress</a>. These are then tied together with Shortcuts.
+
+					<h2>Highlighted</h2>
+
+					I've used <a href="https://highlighted.app">Highlighted</a> for nearly three years, and over time, it has become a delightful record of the books I have read.
+
+					<h2>Overcast</h2>
+
+					I download my audiobooks in a DRM-free format, usually from <a href="https://libro.fm">Libro.fm</a>, and then upload them to Overcast in order to take advantage of Smart Speed. (Uploads are a feature of the $10/year subscription, which I happily pay.)
+
+					<h2>VoiceExpress</h2>
+
+					It took a little bit of searching, but <a href="https://apps.apple.com/us/app/voiceexpress-audio-to-text/id1434634466">VoiceExpress</a> is a simple app that uses iOS's native transcription features to convert audio to text.
+
+					<h2>The Shortcut</h2>
+
+					<a href="https://www.icloud.com/shortcuts/1844bac4f5194da1af3591613a211eb7">The shortcut</a> here is very simple. It accepts Media files via the Share Sheet, pipes it into the Transcribe Audio action from VoiceExpress and then passes the resulting text into the Highlight action. To use the shortcut, prepare a clip of an audiobook and share it to the shortcut. That's it!
+
+					<a href="https://www.icloud.com/shortcuts/1844bac4f5194da1af3591613a211eb7"><img src="https://plainvanillaweb.com/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/images/IMG_FF06AADED8B1-1-138x300.jpeg" alt="A screenshot of the shortcut" width="138" height="300" class="aligncenter size-medium wp-image-1134"></a>
+
+					<h2>Caveats</h2>
+
+					The results are of course imperfect; they usually require some editing after the fact. It's also possible that I will not accurately intuit the punctuation for complex sentences. I find these tradeoffs acceptable for the overall benefit.
+
+					The two biggest players for audiobooks are Audible and Libro.fm, but neither supports sharing clips. (Audible <a href="https://www.reddit.com/r/audible/comments/awdj8m/sharing_clips_in_audible_not_available_anymore/">used to</a> but the feature was removed.) I was already using Overcast for audiobooks anyway, but if I weren't, the ability to capture highlights in this way would be enough to get me to start.
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[Coxmas 2022]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/" />
+				<id>https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/</id>
+				<published>2022-12-26T20:14:30.000Z</published>
+				<updated>2022-12-26T20:14:33.000Z</updated>
+				<summary><![CDATA[]]></summary>
+				<media:content
+      url="https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/images/IMG_0201-138x300.png"
+      type="image/png"
+      medium="image" />
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						Coxmas 2022
+					</h1>
+				</header>
+				<section class="e-content">
+					<h2>Lock Screen</h2>
+
+					My lock screen is pretty simple. The top widget is Fantastical. Below the time, Battery, <a href="https://gentler.app">Gentler Streak</a>, Weather, and <a href="https://streaks.app">Streaks</a>. Nearly every app's notifications are relegated to a few summaries so that if my phone makes a noise or lights up, I know it's important.
+
+					<a href="https://jxpx777.me/2022/1121-coxmas-2022/img_0201/" rel="attachment wp-att-1123"><img src="https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/images/IMG_0201-138x300.png" alt="" width="138" height="300" class="aligncenter size-medium wp-image-1123"></a>
+
+					<h2>Home Screen</h2>
+
+					I am living the all-widget home screen life. All apps that are not in the dock live in App Library.
+
+					Everything but the Photos widget is a stack. The bottom one has three widgets: Music, Overcast, and <a href="https://endel.io">Endel</a>. The top right also has three: Weather, Maps, and Streaks. And the middle one is Fantastical and Reminders.
+
+					<a href="https://jxpx777.me/2022/1121-coxmas-2022/img_0200/" rel="attachment wp-att-1122"><img src="https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/images/IMG_0200-138x300.png" alt="" width="138" height="300" class="aligncenter size-medium wp-image-1122"></a>
+
+					<h2>Watch Face</h2>
+
+					Not traditionally a Coxmas item, but Apple Watch face choices feel like they should be equally open to criticism. Mine is very close to my iPhone lock screen with the additiono f Home and Reminders.
+
+					<a href="https://jxpx777.me/2022/1121-coxmas-2022/incoming-8b519cd5-ed51-4844-ade6-d9c0814091dd/" rel="attachment wp-att-1124"><img src="https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/images/incoming-8B519CD5-ED51-4844-ADE6-D9C0814091DD-245x300.png" alt="" width="245" height="300" class="aligncenter size-medium wp-image-1124"></a>
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[Post 962]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20210426-962/" />
+				<id>https://plainvanillaweb.com/blog/articles/20210426-962/</id>
+				<published>2021-04-26T17:19:39.000Z</published>
+				<updated>2021-04-26T17:20:33.000Z</updated>
+				<summary><![CDATA[Want to read: Full Spectrum: How the Science of Color Made Us Modern by Adam Rogers, ISBN: 9781328518903]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						Post 962
+					</h1>
+				</header>
+				<section class="e-content">
+
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[I was today years old when I learned that the constituent words of the compound…]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20200408-803/" />
+				<id>https://plainvanillaweb.com/blog/articles/20200408-803/</id>
+				<published>2020-04-08T06:53:38.000Z</published>
+				<updated>2020-04-08T06:53:38.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						I was today years old when I learned that the constituent words of the compound…
+					</h1>
+				</header>
+				<section class="e-content">
+					I was today years old when I learned that the constituent words of the compound word “painstaking” are “pains” and “taking” not “pain” and “staking”.
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[The slow growth of iMessage for Business makes me miss Path Talk a little bit le…]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20200309-797/" />
+				<id>https://plainvanillaweb.com/blog/articles/20200309-797/</id>
+				<published>2020-03-09T19:14:07.000Z</published>
+				<updated>2020-03-09T19:14:07.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						The slow growth of iMessage for Business makes me miss Path Talk a little bit le…
+					</h1>
+				</header>
+				<section class="e-content">
+					The slow growth of iMessage for Business makes me miss <a href="https://techcrunch.com/2014/06/20/path-talk-talkto/">Path Talk</a> a little bit less.
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[I’m looking for some new books to read. I generally prefer non-fiction, and I’ve…]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20180904-530/" />
+				<id>https://plainvanillaweb.com/blog/articles/20180904-530/</id>
+				<published>2018-09-05T01:58:22.000Z</published>
+				<updated>2018-09-05T01:58:22.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						I’m looking for some new books to read. I generally prefer non-fiction, and I’ve…
+					</h1>
+				</header>
+				<section class="e-content">
+					I’m looking for some new books to read. I generally prefer non-fiction, and I’ve been enjoying various self-improvement books like Level Up Your Life and Triggers but I’m allergic to hooey. Recommendations?
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[The problem is, even though we're no longer bumping into wolves, we're constantl…]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20180620-how-to-bounce-back/" />
+				<id>https://plainvanillaweb.com/blog/articles/20180620-how-to-bounce-back/</id>
+				<published>2018-06-20T23:10:13.000Z</published>
+				<updated>2018-08-12T17:50:09.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						The problem is, even though we're no longer bumping into wolves, we're constantl…
+					</h1>
+				</header>
+				<section class="e-content">
+					<blockquote>
+						The problem is, even though we're no longer bumping into wolves, we're constantly activating the same neural pathways of fear with everyday stressors—worrying about the future, fretting about the past.
+					</blockquote>
+
+					<a href="http://time.com/time_author/mandy-oaklander/">Mandy Oaklander</a> in <a href="http://time.com/collection/guide-to-happiness/3892044/the-science-of-bouncing-back/">"The Science of Bouncing Back"</a>
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[iOS 12 wishlist: better reply suggestions for credit card fraud alerts]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20180601-315/" />
+				<id>https://plainvanillaweb.com/blog/articles/20180601-315/</id>
+				<published>2018-06-01T19:02:31.000Z</published>
+				<updated>2018-06-01T19:02:31.000Z</updated>
+				<summary><![CDATA[]]></summary>
+				<media:content
+      url="https://plainvanillaweb.com/blog/articles/20180601-315/file:///var/mobile/Containers/Data/Application/82A91DCB-BF32-4A81-AEA0-13FF2A2F1A29/Library/Caches/Media/thumbnail-p113-2436x2436.jpeg"
+      type="image/jpeg"
+      medium="image" />
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						iOS 12 wishlist: better reply suggestions for credit card fraud alerts
+					</h1>
+				</header>
+				<section class="e-content">
+					<img src="https://plainvanillaweb.com/blog/articles/20180601-315/file:///var/mobile/Containers/Data/Application/82A91DCB-BF32-4A81-AEA0-13FF2A2F1A29/Library/Caches/Media/thumbnail-p113-2436x2436.jpeg" class="alignnone" data-wp_upload_id="x-coredata://64223D1B-104D-4307-9F83-6DE5C2B73DBC/Media/p113">
+
+					iOS 12 wishlist: better reply suggestions for credit card fraud alerts
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[Post 313]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20180531-shadow-selfie/" />
+				<id>https://plainvanillaweb.com/blog/articles/20180531-shadow-selfie/</id>
+				<published>2018-05-31T15:07:43.000Z</published>
+				<updated>2019-07-25T01:33:02.000Z</updated>
+				<summary><![CDATA[]]></summary>
+				<media:content
+      url="https://plainvanillaweb.com/blog/articles/20180531-shadow-selfie/images/img_0945.jpg"
+      type="image/jpg"
+      medium="image" />
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						Post 313
+					</h1>
+				</header>
+				<section class="e-content">
+					<img src="https://plainvanillaweb.com/blog/articles/20180531-shadow-selfie/images/img_0945.jpg" class="alignnone size-full wp-image-312" height="4032" width="3024">
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[This article from Texas Monthly is like a gut punch to my upbringing: The old sa…]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20180517-303/" />
+				<id>https://plainvanillaweb.com/blog/articles/20180517-303/</id>
+				<published>2018-05-17T14:37:17.000Z</published>
+				<updated>2018-05-17T14:37:17.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						This article from Texas Monthly is like a gut punch to my upbringing: The old sa…
+					</h1>
+				</header>
+				<section class="e-content">
+					<a href="https://www.texasmonthly.com/food/farewell-to-dairy-queen/">This article</a> from Texas Monthly is like a gut punch to my upbringing:
+
+					<blockquote>
+						The old saying that every Texas town has a Dairy Queen is no longer true for many communities…
+					</blockquote>
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[A cat recently started visiting our front porch. Ann Margaret decided to name th…]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20180514-stevie/" />
+				<id>https://plainvanillaweb.com/blog/articles/20180514-stevie/</id>
+				<published>2018-05-15T03:18:05.000Z</published>
+				<updated>2018-05-15T03:18:06.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						A cat recently started visiting our front porch. Ann Margaret decided to name th…
+					</h1>
+				</header>
+				<section class="e-content">
+					A cat recently started visiting our front porch. Ann Margaret decided to name the sweet precious angel. I’ll only give two hints: 1) the name is from <a href="https://www.imdb.com/title/tt3526078/">Schitt’s Creek</a> and 2) we’re pretty sure it’s a girl.
+
+					Her name is Stevie. Ann Margaret says they have similar eyes.
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[Relieved to hear that my preferred email client is not vulnerable to EFAIL !]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20180514-296/" />
+				<id>https://plainvanillaweb.com/blog/articles/20180514-296/</id>
+				<published>2018-05-15T01:11:24.000Z</published>
+				<updated>2019-02-24T18:44:19.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						Relieved to hear that my preferred email client is not vulnerable to EFAIL !
+					</h1>
+				</header>
+				<section class="e-content">
+					<p>Relieved to hear that <a href="https://canarymail.io/">my preferred email client</a> is <a href="https://www.takecontrolbooks.com/blog/what-you-need-to-know-about-the-efail-vulnerability">not vulnerable to EFAIL</a>!</p>
+
+
+					<p></p>
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[An Outsider’s Guide to Glacier National Park]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20180308-an-outsiders-guide-to-glacier-national-park/" />
+				<id>https://plainvanillaweb.com/blog/articles/20180308-an-outsiders-guide-to-glacier-national-park/</id>
+				<published>2018-03-08T23:59:01.000Z</published>
+				<updated>2018-03-08T23:59:01.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						An Outsider’s Guide to Glacier National Park
+					</h1>
+				</header>
+				<section class="e-content">
+					Glacier is high on my to-visit list, and <a href="https://unitedbyblue.com/blogs/united-by-blue-journal/an-outsider-s-guide-to-glacier-national-park">this article</a> only makes it more so.
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[It's been a few years since I first saw this video, but it came up again recentl…]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20171204-218/" />
+				<id>https://plainvanillaweb.com/blog/articles/20171204-218/</id>
+				<published>2017-12-04T20:22:35.000Z</published>
+				<updated>2017-12-04T20:22:35.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						It's been a few years since I first saw this video, but it came up again recentl…
+					</h1>
+				</header>
+				<section class="e-content">
+					It's been a few years since I first saw this video, but it came up again recently and I was reminded how delightful and insightful it is.
+
+					<figure class="wp-embed youtube">
+						<p><a href="https://www.youtube.com/embed/R9g3Q-qvtss">YouTube video player</a></p>
+					</figure>
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[?]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20171123-179/" />
+				<id>https://plainvanillaweb.com/blog/articles/20171123-179/</id>
+				<published>2017-11-24T05:58:17.000Z</published>
+				<updated>2017-11-24T05:58:17.000Z</updated>
+				<summary><![CDATA[]]></summary>
+				<media:content
+      url="https://plainvanillaweb.com/blog/articles/20171123-179/images/99699be0884649c9be505d003073ee08.jpg"
+      type="image/jpg"
+      medium="image" />
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						?
+					</h1>
+				</header>
+				<section class="e-content">
+					?
+
+					<img src="https://plainvanillaweb.com/blog/articles/20171123-179/images/99699be0884649c9be505d003073ee08.jpg" width="600" height="600">
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[It’s 9:00 in the morning. Ah! It’s not a four-way. Hmph And I need your help. Ug…]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20171111-149/" />
+				<id>https://plainvanillaweb.com/blog/articles/20171111-149/</id>
+				<published>2017-11-11T15:05:49.000Z</published>
+				<updated>2019-07-25T01:37:44.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						It’s 9:00 in the morning. Ah! It’s not a four-way. Hmph And I need your help. Ug…
+					</h1>
+				</header>
+				<section class="e-content">
+					<blockquote>
+						It’s 9:00 in the morning.
+						<em>Ah!</em>
+						It’s not a four-way.
+						<em>Hmph</em>
+						And I need your help.
+						<em>Ugh!</em>
+					</blockquote>
+
+					<figure class="wp-embed youtube">
+						<p><a href="https://www.youtube.com/embed/jk6yH_HUH2w">YouTube video player</a></p>
+					</figure>
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[After totally breaking down many pairs of Bombas , I’m gonna see if Darn Tough ’…]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20171109-147/" />
+				<id>https://plainvanillaweb.com/blog/articles/20171109-147/</id>
+				<published>2017-11-09T18:22:27.000Z</published>
+				<updated>2018-08-12T15:56:13.000Z</updated>
+				<summary><![CDATA[]]></summary>
+
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						After totally breaking down many pairs of Bombas , I’m gonna see if Darn Tough ’…
+					</h1>
+				</header>
+				<section class="e-content">
+					After totally breaking down many pairs of <a href="https://www.bombas.com">Bombas</a>, I’m gonna see if <a href="https://darntough.com">Darn Tough</a>’s socks can stand up to the pounding of me playing ultimate.
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
+				</footer>
+			]]></content>
+		</entry>
+		<entry>
+				<title><![CDATA[My iPhone X review:]]></title>
+				<link
+      rel="alternate"
+      type="text/html"
+      href="https://plainvanillaweb.com/blog/articles/20171107-143/" />
+				<id>https://plainvanillaweb.com/blog/articles/20171107-143/</id>
+				<published>2017-11-08T03:43:32.000Z</published>
+				<updated>2018-03-05T03:36:30.000Z</updated>
+				<summary><![CDATA[]]></summary>
+				<media:content
+      url="https://plainvanillaweb.com/blog/articles/20171107-143/images/ron_swanson_rectangle.gif"
+      type="image/gif"
+      medium="image" />
+
+				<content
+      type="html"><![CDATA[
+				<header>
+					<h1 class="p-name">
+						My iPhone X review:
+					</h1>
+				</header>
+				<section class="e-content">
+					<img src="https://plainvanillaweb.com/blog/articles/20171107-143/images/ron_swanson_rectangle.gif" alt="This is an excellent rectangle! -Ron Swanson">
+				</section>
+				<footer>
+					<section class="metadata">
+
+					</section>
 				</footer>
 			]]></content>
 		</entry>
