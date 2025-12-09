@@ -1,6 +1,6 @@
 import { html } from "/js/lib/html.js";
 
-const BLOG_BASE_URL = "https://plainvanillaweb.com/blog/";
+const BLOG_BASE_URL = "https://jxpx777.github.io/blog/";
 
 const ATOM_FEED_XML = `<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
@@ -24,10 +24,12 @@ customElements.define(
   class BlogGenerator extends HTMLElement {
     #blogFolder;
     #articles; // [{ slug, title, summary, content, published, image: { src, alt } }]
+    #metadata; // { featured: [slugs] }
 
     reset() {
       this.#blogFolder = null;
       this.#articles = [];
+      this.#metadata = null;
       this.textContent =
         "To start: drag the blog folder here, or click to open it with a picker.";
     }
@@ -57,10 +59,10 @@ customElements.define(
               mode: "read",
               startIn: "documents",
             })
-            .then(async (entry) => {
+            .then(async entry => {
               await this.startProcessing(entry);
             })
-            .catch((e) => {
+            .catch(e => {
               console.error(e);
               this.showError(e.message);
             });
@@ -69,12 +71,12 @@ customElements.define(
     }
 
     addDragListeners() {
-      this.addEventListener("dragover", (e) => {
+      this.addEventListener("dragover", e => {
         // Prevent navigation.
         e.preventDefault();
       });
 
-      this.addEventListener("drop", async (e) => {
+      this.addEventListener("drop", async e => {
         try {
           // Prevent navigation.
           e.preventDefault();
@@ -109,10 +111,24 @@ customElements.define(
       this.#articles = [];
       this.innerHTML = "";
       this.addMessage("Processing...");
+
+      // Load optional metadata
+      this.#metadata = await this.loadMetadata();
+
       const articlesFolder =
         await this.#blogFolder.getDirectoryHandle("articles");
       for await (const [key, value] of articlesFolder.entries()) {
         if (value.kind === "directory") {
+          // Skip drafts (prefix ~) and hidden (prefix _)
+          if (key.startsWith("~")) {
+            this.addMessage(`Skipping ${key}/ (draft)`, "warning");
+            continue;
+          }
+          if (key.startsWith("_")) {
+            this.addMessage(`Skipping ${key}/ (hidden)`, "warning");
+            continue;
+          }
+
           this.addMessage(`Parsing ${key}/`);
           try {
             const article = await value.getFileHandle("index.html");
@@ -142,6 +158,25 @@ customElements.define(
       this.addIndexJsonBlock();
     }
 
+    async loadMetadata() {
+      try {
+        const articlesFolder =
+          await this.#blogFolder.getDirectoryHandle("articles");
+        const metadataFile =
+          await articlesFolder.getFileHandle("metadata.json");
+        const file = await metadataFile.getFile();
+        const metadata = JSON.parse(await file.text());
+        this.addMessage("Loaded metadata.json");
+        return metadata;
+      } catch (e) {
+        if (e.name === "NotFoundError") {
+          this.addMessage("No metadata.json found, using defaults", "warning");
+          return { featured: [] };
+        }
+        throw e;
+      }
+    }
+
     async processArticle(article, path) {
       const file = await article.getFile();
       const html = await file.text();
@@ -167,6 +202,7 @@ customElements.define(
         dom.querySelector("main article").dataset["updated"] || undefined;
       const authorElement = dom.querySelector("address.p-author");
       const author = authorElement?.textContent || undefined;
+      const featured = this.#metadata.featured?.includes(slug) || false;
 
       this.#articles.push({
         slug,
@@ -177,13 +213,14 @@ customElements.define(
         updated,
         image,
         author,
+        featured,
       });
     }
 
     async processArticleContent(main, path) {
       // inline code examples
       await Promise.all(
-        [...main.querySelectorAll("x-code-viewer")].map(async (elem) => {
+        [...main.querySelectorAll("x-code-viewer")].map(async elem => {
           const text = await this.downloadFile(elem.getAttribute("src"), path);
           const div = document.createElement("div");
           const name = elem.getAttribute("name");
@@ -195,7 +232,7 @@ customElements.define(
       );
 
       // convert img src to absolute url
-      [...main.querySelectorAll("img")].map((elem) => {
+      [...main.querySelectorAll("img")].map(elem => {
         const src = elem.getAttribute("src");
         if (src.indexOf("http") !== 0) {
           elem.setAttribute(
@@ -206,7 +243,7 @@ customElements.define(
       });
 
       // replace iframes by links
-      [...main.querySelectorAll("iframe")].map((elem) => {
+      [...main.querySelectorAll("iframe")].map(elem => {
         const src = elem.getAttribute("src");
         const title = elem.getAttribute("title") || src;
         const a = document.createElement("a");
@@ -223,7 +260,7 @@ customElements.define(
 
       // strip out unwanted elements
       [...main.querySelectorAll("blog-article-footer, [data-rss-exclude]")].map(
-        (elem) => elem.remove(),
+        elem => elem.remove(),
       );
 
       return main.innerHTML;
@@ -233,7 +270,7 @@ customElements.define(
       const parts = await this.#blogFolder.resolve(path);
       parts.push(file);
       const url = new URL(parts.join("/"), import.meta.url);
-      return fetch(url).then((res) => res.text());
+      return fetch(url).then(res => res.text());
     }
 
     addMessage(text, className) {
@@ -245,7 +282,7 @@ customElements.define(
 
     addFeedBlock() {
       const lastUpdated = this.#articles
-        .map((a) => a.updated || a.published)
+        .map(a => a.updated || a.published)
         .sort()
         .pop();
       const xml = ATOM_FEED_XML.replace(
@@ -255,7 +292,7 @@ customElements.define(
         "%ENTRIES%",
         this.#articles
           .slice(0, ATOM_FEED_LENGTH)
-          .map((a) => {
+          .map(a => {
             const url = `${BLOG_BASE_URL}articles/${a.slug}/`;
             const media = a.image
               ? `<media:content url="${new URL(a.image.src, url)}" type="image/${a.image.src.split(".").pop()}" medium="image" />`
@@ -292,10 +329,11 @@ customElements.define(
 
     addIndexJsonBlock() {
       const text = JSON.stringify(
-        this.#articles.map((obj) => ({
+        this.#articles.map(obj => ({
           ...obj,
           content: undefined,
           image: undefined,
+          featured: obj.featured,
         })),
         null,
         4,

@@ -6,8 +6,12 @@
 		<id>https://jxpx777.me/blog/</id>
 		<icon>https://jxpx777.me/favicon.ico</icon>
 		<logo>https://jxpx777.me/apple-touch-icon.png</logo>
-		<link rel="alternate" href="https://jxpx777.me/blog/" />
-		<link rel="self" href="https://jxpx777.me/blog/feed.xml" />
+		<link
+    rel="alternate"
+    href="https://jxpx777.me/blog/" />
+		<link
+    rel="self"
+    href="https://jxpx777.me/blog/feed.xml" />
 		<updated>2025-12-01T23:54:00.000Z</updated>
 		<author>
 				<name>Jamie Phelps</name>
@@ -17,8 +21,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20251201-lessons-from-linkedin-account-compromise/" />
-				<id>https://plainvanillaweb.com/blog/articles/20251201-lessons-from-linkedin-account-compromise/</id>
+      href="https://jxpx777.github.io/blog/articles/20251201-lessons-from-linkedin-account-compromise/" />
+				<id>https://jxpx777.github.io/blog/articles/20251201-lessons-from-linkedin-account-compromise/</id>
 				<published>2025-12-01T23:54:00.000Z</published>
 				<updated>2025-12-01T23:54:00.000Z</updated>
 				<summary><![CDATA[Lessons I learned—as a user and as a software developer—when my LinkedIn account was compromised for several days in October 2025.]]></summary>
@@ -32,10 +36,6 @@
 					</h1>
 				</header>
 				<div class="e-content">
-					<h1 id="lessons-learned-from-my-linkedin-account-takeover">
-						Lessons learned from my LinkedIn account takeover
-					</h1>
-
 					<p>
 						In early October 2025, I woke to several questions from colleagues
 						about messages they received from my LinkedIn account. That’s how I
@@ -259,13 +259,13 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/" />
-				<id>https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/</id>
+      href="https://jxpx777.github.io/blog/articles/20250719-apple-music-classical/" />
+				<id>https://jxpx777.github.io/blog/articles/20250719-apple-music-classical/</id>
 				<published>2025-07-19T08:00:00.000Z</published>
 				<updated>2025-07-27T08:00:00.000Z</updated>
 				<summary><![CDATA[Apple acquired a music service dedicated to classical music, but that didn’t include classical music sensibilities. Here are three examples where Apple Music Classical misses expectations.]]></summary>
 				<media:content
-      url="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/brahms-carplay-693.png"
+      url="https://jxpx777.github.io/blog/articles/20250719-apple-music-classical/images/brahms-carplay-693.png"
       type="image/png"
       medium="image" />
 
@@ -300,7 +300,7 @@
 						The result? Baffling. Even while driving, I <em>had</em> to snap a
 						screenshot:
 
-						<br><img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/brahms-carplay-693.png" srcset="
+						<br><img src="https://jxpx777.github.io/blog/articles/20250719-apple-music-classical/images/brahms-carplay-693.png" srcset="
 								./images/brahms-carplay-347.png 347w,
 								./images/brahms-carplay-693.png 693w,
 								./images/brahms-carplay-1386.png 1386w,
@@ -341,7 +341,7 @@
 					<p>
 						Elsewhere, Apple Music Classical nails this. Its design surfaces a
 						work’s variety of performances with a clear editorial perspective.
-						<br><img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/shostakovich-fifth-603.png" srcset="
+						<br><img src="https://jxpx777.github.io/blog/articles/20250719-apple-music-classical/images/shostakovich-fifth-603.png" srcset="
 								./images/shostakovich-fifth-302.png   302w,
 								./images/shostakovich-fifth-603.png   603w,
 								./images/shostakovich-fifth-1206.png 1206w
@@ -376,10 +376,10 @@
 										<figcaption>
 											The playlist track listing in Apple Music on macOS and iOS
 										</figcaption>
-										<img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-mac.png" width="300" class="lightbox" alt="A screenshot showing the first fifteen tracks of the playlist."><br>
-										<img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-ios-1.png" width="200" class="lightbox" alt="A screenshot of the playlist on iOS. The first track, Movement I, is visible and spotlighted.">
-										<img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-ios-2.png" width="200" class="lightbox" alt="A screenshot further down the playlist. Several tracks are displayed; Movement II is spotlighted at the top of the list.">
-										<img src="https://plainvanillaweb.com/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-ios-3.png" width="200" class="lightbox" alt="A screenshot of the bottom of the playlist. Several tracks are displayed; Movement IV, spotlighted, is the last track.">
+										<img src="https://jxpx777.github.io/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-mac.png" width="300" class="lightbox" alt="A screenshot showing the first fifteen tracks of the playlist."><br>
+										<img src="https://jxpx777.github.io/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-ios-1.png" width="200" class="lightbox" alt="A screenshot of the playlist on iOS. The first track, Movement I, is visible and spotlighted.">
+										<img src="https://jxpx777.github.io/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-ios-2.png" width="200" class="lightbox" alt="A screenshot further down the playlist. Several tracks are displayed; Movement II is spotlighted at the top of the list.">
+										<img src="https://jxpx777.github.io/blog/articles/20250719-apple-music-classical/images/dvorak-essentials-ios-3.png" width="200" class="lightbox" alt="A screenshot of the bottom of the playlist. Several tracks are displayed; Movement IV, spotlighted, is the last track.">
 									</figure>
 								</details>
 							</li>
@@ -396,13 +396,13 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/" />
-				<id>https://plainvanillaweb.com/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/</id>
+      href="https://jxpx777.github.io/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/" />
+				<id>https://jxpx777.github.io/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/</id>
 				<published>2023-02-02T22:00:27.000Z</published>
 				<updated>2023-03-03T00:58:05.000Z</updated>
 				<summary><![CDATA[]]></summary>
 				<media:content
-      url="https://plainvanillaweb.com/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/images/IMG_FF06AADED8B1-1-138x300.jpeg"
+      url="https://jxpx777.github.io/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/images/IMG_FF06AADED8B1-1-138x300.jpeg"
       type="image/jpeg"
       medium="image" />
 
@@ -432,7 +432,7 @@
 
 					<a href="https://www.icloud.com/shortcuts/1844bac4f5194da1af3591613a211eb7">The shortcut</a> here is very simple. It accepts Media files via the Share Sheet, pipes it into the Transcribe Audio action from VoiceExpress and then passes the resulting text into the Highlight action. To use the shortcut, prepare a clip of an audiobook and share it to the shortcut. That's it!
 
-					<a href="https://www.icloud.com/shortcuts/1844bac4f5194da1af3591613a211eb7"><img src="https://plainvanillaweb.com/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/images/IMG_FF06AADED8B1-1-138x300.jpeg" alt="A screenshot of the shortcut" width="138" height="300" class="aligncenter size-medium wp-image-1134"></a>
+					<a href="https://www.icloud.com/shortcuts/1844bac4f5194da1af3591613a211eb7"><img src="https://jxpx777.github.io/blog/articles/20230202-capturing-quotes-and-highlights-from-audiobooks/images/IMG_FF06AADED8B1-1-138x300.jpeg" alt="A screenshot of the shortcut" width="138" height="300" class="aligncenter size-medium wp-image-1134"></a>
 
 					<h2>Caveats</h2>
 
@@ -452,13 +452,13 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/" />
-				<id>https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/</id>
+      href="https://jxpx777.github.io/blog/articles/20221226-coxmas-2022/" />
+				<id>https://jxpx777.github.io/blog/articles/20221226-coxmas-2022/</id>
 				<published>2022-12-26T20:14:30.000Z</published>
 				<updated>2022-12-26T20:14:33.000Z</updated>
 				<summary><![CDATA[]]></summary>
 				<media:content
-      url="https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/images/IMG_0201-138x300.png"
+      url="https://jxpx777.github.io/blog/articles/20221226-coxmas-2022/images/IMG_0201-138x300.png"
       type="image/png"
       medium="image" />
 
@@ -474,7 +474,7 @@
 
 					My lock screen is pretty simple. The top widget is Fantastical. Below the time, Battery, <a href="https://gentler.app">Gentler Streak</a>, Weather, and <a href="https://streaks.app">Streaks</a>. Nearly every app's notifications are relegated to a few summaries so that if my phone makes a noise or lights up, I know it's important.
 
-					<a href="https://jxpx777.me/2022/1121-coxmas-2022/img_0201/" rel="attachment wp-att-1123"><img src="https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/images/IMG_0201-138x300.png" alt="" width="138" height="300" class="aligncenter size-medium wp-image-1123"></a>
+					<a href="https://jxpx777.me/2022/1121-coxmas-2022/img_0201/" rel="attachment wp-att-1123"><img src="https://jxpx777.github.io/blog/articles/20221226-coxmas-2022/images/IMG_0201-138x300.png" alt="" width="138" height="300" class="aligncenter size-medium wp-image-1123"></a>
 
 					<h2>Home Screen</h2>
 
@@ -482,13 +482,13 @@
 
 					Everything but the Photos widget is a stack. The bottom one has three widgets: Music, Overcast, and <a href="https://endel.io">Endel</a>. The top right also has three: Weather, Maps, and Streaks. And the middle one is Fantastical and Reminders.
 
-					<a href="https://jxpx777.me/2022/1121-coxmas-2022/img_0200/" rel="attachment wp-att-1122"><img src="https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/images/IMG_0200-138x300.png" alt="" width="138" height="300" class="aligncenter size-medium wp-image-1122"></a>
+					<a href="https://jxpx777.me/2022/1121-coxmas-2022/img_0200/" rel="attachment wp-att-1122"><img src="https://jxpx777.github.io/blog/articles/20221226-coxmas-2022/images/IMG_0200-138x300.png" alt="" width="138" height="300" class="aligncenter size-medium wp-image-1122"></a>
 
 					<h2>Watch Face</h2>
 
 					Not traditionally a Coxmas item, but Apple Watch face choices feel like they should be equally open to criticism. Mine is very close to my iPhone lock screen with the additiono f Home and Reminders.
 
-					<a href="https://jxpx777.me/2022/1121-coxmas-2022/incoming-8b519cd5-ed51-4844-ade6-d9c0814091dd/" rel="attachment wp-att-1124"><img src="https://plainvanillaweb.com/blog/articles/20221226-coxmas-2022/images/incoming-8B519CD5-ED51-4844-ADE6-D9C0814091DD-245x300.png" alt="" width="245" height="300" class="aligncenter size-medium wp-image-1124"></a>
+					<a href="https://jxpx777.me/2022/1121-coxmas-2022/incoming-8b519cd5-ed51-4844-ade6-d9c0814091dd/" rel="attachment wp-att-1124"><img src="https://jxpx777.github.io/blog/articles/20221226-coxmas-2022/images/incoming-8B519CD5-ED51-4844-ADE6-D9C0814091DD-245x300.png" alt="" width="245" height="300" class="aligncenter size-medium wp-image-1124"></a>
 				</section>
 				<footer>
 					<section class="metadata">
@@ -502,8 +502,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20210426-962/" />
-				<id>https://plainvanillaweb.com/blog/articles/20210426-962/</id>
+      href="https://jxpx777.github.io/blog/articles/20210426-962/" />
+				<id>https://jxpx777.github.io/blog/articles/20210426-962/</id>
 				<published>2021-04-26T17:19:39.000Z</published>
 				<updated>2021-04-26T17:20:33.000Z</updated>
 				<summary><![CDATA[Want to read: Full Spectrum: How the Science of Color Made Us Modern by Adam Rogers, ISBN: 9781328518903]]></summary>
@@ -531,8 +531,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20200408-803/" />
-				<id>https://plainvanillaweb.com/blog/articles/20200408-803/</id>
+      href="https://jxpx777.github.io/blog/articles/20200408-803/" />
+				<id>https://jxpx777.github.io/blog/articles/20200408-803/</id>
 				<published>2020-04-08T06:53:38.000Z</published>
 				<updated>2020-04-08T06:53:38.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -560,8 +560,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20200309-797/" />
-				<id>https://plainvanillaweb.com/blog/articles/20200309-797/</id>
+      href="https://jxpx777.github.io/blog/articles/20200309-797/" />
+				<id>https://jxpx777.github.io/blog/articles/20200309-797/</id>
 				<published>2020-03-09T19:14:07.000Z</published>
 				<updated>2020-03-09T19:14:07.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -589,8 +589,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20180904-530/" />
-				<id>https://plainvanillaweb.com/blog/articles/20180904-530/</id>
+      href="https://jxpx777.github.io/blog/articles/20180904-530/" />
+				<id>https://jxpx777.github.io/blog/articles/20180904-530/</id>
 				<published>2018-09-05T01:58:22.000Z</published>
 				<updated>2018-09-05T01:58:22.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -618,8 +618,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20180620-how-to-bounce-back/" />
-				<id>https://plainvanillaweb.com/blog/articles/20180620-how-to-bounce-back/</id>
+      href="https://jxpx777.github.io/blog/articles/20180620-how-to-bounce-back/" />
+				<id>https://jxpx777.github.io/blog/articles/20180620-how-to-bounce-back/</id>
 				<published>2018-06-20T23:10:13.000Z</published>
 				<updated>2018-08-12T17:50:09.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -651,13 +651,13 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20180601-315/" />
-				<id>https://plainvanillaweb.com/blog/articles/20180601-315/</id>
+      href="https://jxpx777.github.io/blog/articles/20180601-315/" />
+				<id>https://jxpx777.github.io/blog/articles/20180601-315/</id>
 				<published>2018-06-01T19:02:31.000Z</published>
 				<updated>2018-06-01T19:02:31.000Z</updated>
 				<summary><![CDATA[]]></summary>
 				<media:content
-      url="https://plainvanillaweb.com/blog/articles/20180601-315/file:///var/mobile/Containers/Data/Application/82A91DCB-BF32-4A81-AEA0-13FF2A2F1A29/Library/Caches/Media/thumbnail-p113-2436x2436.jpeg"
+      url="https://jxpx777.github.io/blog/articles/20180601-315/file:///var/mobile/Containers/Data/Application/82A91DCB-BF32-4A81-AEA0-13FF2A2F1A29/Library/Caches/Media/thumbnail-p113-2436x2436.jpeg"
       type="image/jpeg"
       medium="image" />
 
@@ -669,7 +669,7 @@
 					</h1>
 				</header>
 				<section class="e-content">
-					<img src="https://plainvanillaweb.com/blog/articles/20180601-315/file:///var/mobile/Containers/Data/Application/82A91DCB-BF32-4A81-AEA0-13FF2A2F1A29/Library/Caches/Media/thumbnail-p113-2436x2436.jpeg" class="alignnone" data-wp_upload_id="x-coredata://64223D1B-104D-4307-9F83-6DE5C2B73DBC/Media/p113">
+					<img src="https://jxpx777.github.io/blog/articles/20180601-315/file:///var/mobile/Containers/Data/Application/82A91DCB-BF32-4A81-AEA0-13FF2A2F1A29/Library/Caches/Media/thumbnail-p113-2436x2436.jpeg" class="alignnone" data-wp_upload_id="x-coredata://64223D1B-104D-4307-9F83-6DE5C2B73DBC/Media/p113">
 
 					iOS 12 wishlist: better reply suggestions for credit card fraud alerts
 				</section>
@@ -685,13 +685,13 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20180531-shadow-selfie/" />
-				<id>https://plainvanillaweb.com/blog/articles/20180531-shadow-selfie/</id>
+      href="https://jxpx777.github.io/blog/articles/20180531-shadow-selfie/" />
+				<id>https://jxpx777.github.io/blog/articles/20180531-shadow-selfie/</id>
 				<published>2018-05-31T15:07:43.000Z</published>
 				<updated>2019-07-25T01:33:02.000Z</updated>
 				<summary><![CDATA[]]></summary>
 				<media:content
-      url="https://plainvanillaweb.com/blog/articles/20180531-shadow-selfie/images/img_0945.jpg"
+      url="https://jxpx777.github.io/blog/articles/20180531-shadow-selfie/images/img_0945.jpg"
       type="image/jpg"
       medium="image" />
 
@@ -703,7 +703,7 @@
 					</h1>
 				</header>
 				<section class="e-content">
-					<img src="https://plainvanillaweb.com/blog/articles/20180531-shadow-selfie/images/img_0945.jpg" class="alignnone size-full wp-image-312" height="4032" width="3024">
+					<img src="https://jxpx777.github.io/blog/articles/20180531-shadow-selfie/images/img_0945.jpg" class="alignnone size-full wp-image-312" height="4032" width="3024">
 				</section>
 				<footer>
 					<section class="metadata">
@@ -717,8 +717,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20180517-303/" />
-				<id>https://plainvanillaweb.com/blog/articles/20180517-303/</id>
+      href="https://jxpx777.github.io/blog/articles/20180517-303/" />
+				<id>https://jxpx777.github.io/blog/articles/20180517-303/</id>
 				<published>2018-05-17T14:37:17.000Z</published>
 				<updated>2018-05-17T14:37:17.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -750,8 +750,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20180514-stevie/" />
-				<id>https://plainvanillaweb.com/blog/articles/20180514-stevie/</id>
+      href="https://jxpx777.github.io/blog/articles/20180514-stevie/" />
+				<id>https://jxpx777.github.io/blog/articles/20180514-stevie/</id>
 				<published>2018-05-15T03:18:05.000Z</published>
 				<updated>2018-05-15T03:18:06.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -781,8 +781,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20180514-296/" />
-				<id>https://plainvanillaweb.com/blog/articles/20180514-296/</id>
+      href="https://jxpx777.github.io/blog/articles/20180514-296/" />
+				<id>https://jxpx777.github.io/blog/articles/20180514-296/</id>
 				<published>2018-05-15T01:11:24.000Z</published>
 				<updated>2019-02-24T18:44:19.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -813,8 +813,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20180308-an-outsiders-guide-to-glacier-national-park/" />
-				<id>https://plainvanillaweb.com/blog/articles/20180308-an-outsiders-guide-to-glacier-national-park/</id>
+      href="https://jxpx777.github.io/blog/articles/20180308-an-outsiders-guide-to-glacier-national-park/" />
+				<id>https://jxpx777.github.io/blog/articles/20180308-an-outsiders-guide-to-glacier-national-park/</id>
 				<published>2018-03-08T23:59:01.000Z</published>
 				<updated>2018-03-08T23:59:01.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -842,8 +842,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20171204-218/" />
-				<id>https://plainvanillaweb.com/blog/articles/20171204-218/</id>
+      href="https://jxpx777.github.io/blog/articles/20171204-218/" />
+				<id>https://jxpx777.github.io/blog/articles/20171204-218/</id>
 				<published>2017-12-04T20:22:35.000Z</published>
 				<updated>2017-12-04T20:22:35.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -875,13 +875,13 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20171123-179/" />
-				<id>https://plainvanillaweb.com/blog/articles/20171123-179/</id>
+      href="https://jxpx777.github.io/blog/articles/20171123-179/" />
+				<id>https://jxpx777.github.io/blog/articles/20171123-179/</id>
 				<published>2017-11-24T05:58:17.000Z</published>
 				<updated>2017-11-24T05:58:17.000Z</updated>
 				<summary><![CDATA[]]></summary>
 				<media:content
-      url="https://plainvanillaweb.com/blog/articles/20171123-179/images/99699be0884649c9be505d003073ee08.jpg"
+      url="https://jxpx777.github.io/blog/articles/20171123-179/images/99699be0884649c9be505d003073ee08.jpg"
       type="image/jpg"
       medium="image" />
 
@@ -895,7 +895,7 @@
 				<section class="e-content">
 					?
 
-					<img src="https://plainvanillaweb.com/blog/articles/20171123-179/images/99699be0884649c9be505d003073ee08.jpg" width="600" height="600">
+					<img src="https://jxpx777.github.io/blog/articles/20171123-179/images/99699be0884649c9be505d003073ee08.jpg" width="600" height="600">
 				</section>
 				<footer>
 					<section class="metadata">
@@ -909,8 +909,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20171111-149/" />
-				<id>https://plainvanillaweb.com/blog/articles/20171111-149/</id>
+      href="https://jxpx777.github.io/blog/articles/20171111-149/" />
+				<id>https://jxpx777.github.io/blog/articles/20171111-149/</id>
 				<published>2017-11-11T15:05:49.000Z</published>
 				<updated>2019-07-25T01:37:44.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -949,8 +949,8 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20171109-147/" />
-				<id>https://plainvanillaweb.com/blog/articles/20171109-147/</id>
+      href="https://jxpx777.github.io/blog/articles/20171109-147/" />
+				<id>https://jxpx777.github.io/blog/articles/20171109-147/</id>
 				<published>2017-11-09T18:22:27.000Z</published>
 				<updated>2018-08-12T15:56:13.000Z</updated>
 				<summary><![CDATA[]]></summary>
@@ -978,13 +978,13 @@
 				<link
       rel="alternate"
       type="text/html"
-      href="https://plainvanillaweb.com/blog/articles/20171107-143/" />
-				<id>https://plainvanillaweb.com/blog/articles/20171107-143/</id>
+      href="https://jxpx777.github.io/blog/articles/20171107-143/" />
+				<id>https://jxpx777.github.io/blog/articles/20171107-143/</id>
 				<published>2017-11-08T03:43:32.000Z</published>
 				<updated>2018-03-05T03:36:30.000Z</updated>
 				<summary><![CDATA[]]></summary>
 				<media:content
-      url="https://plainvanillaweb.com/blog/articles/20171107-143/images/ron_swanson_rectangle.gif"
+      url="https://jxpx777.github.io/blog/articles/20171107-143/images/ron_swanson_rectangle.gif"
       type="image/gif"
       medium="image" />
 
@@ -996,7 +996,7 @@
 					</h1>
 				</header>
 				<section class="e-content">
-					<img src="https://plainvanillaweb.com/blog/articles/20171107-143/images/ron_swanson_rectangle.gif" alt="This is an excellent rectangle! -Ron Swanson">
+					<img src="https://jxpx777.github.io/blog/articles/20171107-143/images/ron_swanson_rectangle.gif" alt="This is an excellent rectangle! -Ron Swanson">
 				</section>
 				<footer>
 					<section class="metadata">
