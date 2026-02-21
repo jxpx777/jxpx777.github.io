@@ -28,7 +28,7 @@ class ScoreSide extends HTMLElement {
           gap: 0.5rem;
 
           .player-name {
-            font-size: 0.85rem;
+            font-size: 16px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             opacity: 0.6;

@@ -71,6 +71,7 @@ const GameStore = {
 };
 
 function switchView(name) {
+  flushSave();
   document.body.dataset.view = name;
   if (name === 'history') {
     document.querySelector('history-view').loadGames(GameStore.list());
@@ -78,6 +79,16 @@ function switchView(name) {
 }
 
 let saveTimer = null;
+let pendingGame = null;
+
+function flushSave() {
+  if (pendingGame) {
+    clearTimeout(saveTimer);
+    saveTimer = null;
+    GameStore.update(pendingGame);
+    pendingGame = null;
+  }
+}
 
 document.addEventListener('new-game', () => {
   const game = GameStore.create();
@@ -95,10 +106,9 @@ document.addEventListener('game-selected', (e) => {
 });
 
 document.addEventListener('game-updated', (e) => {
+  pendingGame = e.detail;
   clearTimeout(saveTimer);
-  saveTimer = setTimeout(() => {
-    GameStore.update(e.detail);
-  }, 300);
+  saveTimer = setTimeout(flushSave, 300);
 });
 
 document.addEventListener('game-deleted', (e) => {

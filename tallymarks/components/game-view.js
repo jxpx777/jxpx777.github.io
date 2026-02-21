@@ -99,6 +99,10 @@ class GameView extends HTMLElement {
   #updateName(playerIndex, name) {
     if (!this.#game) return;
     this.#game.players[playerIndex].name = name;
+
+    const sides = this.shadowRoot.querySelectorAll('score-side');
+    sides[playerIndex].setAttribute('name', name);
+
     this.#emitUpdate();
   }
 
