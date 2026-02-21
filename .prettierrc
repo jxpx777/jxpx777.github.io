@@ -1,0 +1,6 @@
+{
+	bracketSameLine: true,
+	arrowParens: "avoid",
+	proseWrap: "preserve",
+	singleAttributePerLine: true
+}
