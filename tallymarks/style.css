@@ -1,0 +1,38 @@
+:root {
+  --color-bg: #1a1a2e;
+  --color-left: #e94560;
+  --color-right: #0f3460;
+  --color-text: #eee;
+  --color-tally: #eee;
+  --font-main: system-ui, -apple-system, sans-serif;
+  --safe-top: env(safe-area-inset-top);
+  --safe-bottom: env(safe-area-inset-bottom);
+  --safe-left: env(safe-area-inset-left);
+  --safe-right: env(safe-area-inset-right);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body[data-view="game"] {
+  & game-view { display: flex; }
+  & history-view { display: none; }
+}
+
+body[data-view="history"] {
+  & game-view { display: none; }
+  & history-view { display: flex; }
+}
